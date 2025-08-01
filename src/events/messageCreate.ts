@@ -1,7 +1,11 @@
 import { createEvent } from 'seyfert';
 import { inspect } from 'node:util';
 
-const cuties = new Set(['507367752391196682', '221399196480045056']);
+const cuties = new Set([
+    '507367752391196682',
+    '221399196480045056',
+    '1377618137645842533'
+]);
 
 export default createEvent({
     data: {
