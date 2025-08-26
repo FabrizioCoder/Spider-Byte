@@ -727,7 +727,9 @@ export async function generateProfileV1(data: PlayerDTO, allHeroes: HeroesDTO[],
         const matchesMetrics = ctx.measureText(hero.matches.toString());
         ctx.fillText(hero.matches.toString(), 490 - matchesMetrics.width / 2, y + 35);
 
-        const winPct = `${(hero.wins / hero.matches * 100).toFixed(1)}%`;
+        const winPct = `${hero.wins
+            ? (hero.wins / hero.matches * 100).toFixed(1)
+            : '0.0'}%`;
         const wrMetrics = ctx.measureText(winPct);
         ctx.fillText(winPct, 637 - wrMetrics.width / 2, y + 35);
 
@@ -737,7 +739,13 @@ export async function generateProfileV1(data: PlayerDTO, allHeroes: HeroesDTO[],
         const heroSvpMetrics = ctx.measureText(hero.svp.toString());
         ctx.fillText(hero.svp.toString(), 902 - heroSvpMetrics.width / 2, y + 35);
 
-        const kdaText = `${(hero.kills / hero.matches).toFixed(0)}/${(hero.deaths / hero.matches).toFixed(0)}/${(hero.assists / hero.matches).toFixed(0)}`;
+        const kdaText = `${hero.matches
+            ? (hero.kills / hero.matches).toFixed(0)
+            : '0'}/${hero.matches
+                ? (hero.deaths / hero.matches).toFixed(0)
+                : '0'}/${hero.matches
+                    ? (hero.assists / hero.matches).toFixed(0)
+                    : '0'}`;
         const kdaMetrics = ctx.measureText(kdaText);
         ctx.fillText(kdaText, 1_040 - kdaMetrics.width / 2, y + 35);
     }
