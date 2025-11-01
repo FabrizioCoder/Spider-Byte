@@ -185,7 +185,7 @@ export class Api {
     timestamp?: number;
   } = {}) {
     options = MergeOptions({
-      season: 4,
+      season: 4.5,
       page: 1,
       limit: 40,
       skip: 0,
@@ -241,7 +241,7 @@ export class Api {
     season?: typeof Seasons[number]['value'];
   } = {}) {
     options = MergeOptions({
-      season: 4
+      season: 4.5
     }, options);
     return this.fetchWithRetry({
       domain: this.marvelRivalsApiUrlV1,
