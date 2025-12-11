@@ -114,6 +114,9 @@ const commands = {
             noRankHistory: (playerName, clubTeamId) => `:warning: **${playerName}${clubTeamId
                 ? `#${clubTeamId}** `
                 : '** '} no tiene historial de rangos.`,
+            noRankData: (playerName, clubTeamId) => `:warning: **${playerName}${clubTeamId
+                ? `#${clubTeamId}** `
+                : '** '} no tiene datos de rango disponibles para la temporada seleccionada.`,
             options: {
                 limit: {
                     name: 'límite',

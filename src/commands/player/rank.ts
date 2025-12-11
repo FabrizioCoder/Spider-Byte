@@ -88,6 +88,12 @@ export default class RankCommand extends SubCommand {
             }
         }
 
+        if (!scoreInfo.length) {
+            return ctx.editOrReply({
+                content: ctx.t.commands.player.rank.noRankData(player.player.name, player.player.team.club_team_mini_name).get()
+            });
+        }
+
         const bufferGraph = await generateRankChart(player, scoreInfo, ctx.options.season);
 
         return ctx.editOrReply({

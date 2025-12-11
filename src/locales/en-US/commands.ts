@@ -107,6 +107,9 @@ export const commands = {
             noRankHistory: (playerName: string, clubTeamId: string | null) => `:warning: **${playerName}${clubTeamId
                 ? `#${clubTeamId}** `
                 : '** '} has no rank history.`,
+            noRankData: (playerName: string, clubTeamId: string | null) => `:warning: **${playerName}${clubTeamId
+                ? `#${clubTeamId}** `
+                : '** '} has no rank data available for the selected season.`,
             options: {
                 limit: {
                     name: 'limit',
