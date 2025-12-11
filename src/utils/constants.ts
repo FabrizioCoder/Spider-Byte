@@ -16,4 +16,13 @@ export const Seasons = [{
 } as const, {
     name: 'S3: The Abyss Awakens',
     value: 3
+} as const, {
+    name: 'S3.5: The Abyss Awakens',
+    value: 3.5
+} as const, {
+    name: 'S4: Heart of the Dragon',
+    value: 4
+} as const, {
+    name: 'S4: Heart of the Dragon',
+    value: 4.5
 } as const];
