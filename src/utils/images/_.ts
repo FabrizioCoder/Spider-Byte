@@ -33,7 +33,7 @@ export function loadUserIcon(iconID: string) {
     return loadImageFromCache(
         'user_icon',
         iconID,
-        `${STICKY_CDN_DOMAIN}/Content/Marvel/UI/Textures/Show/PlayerHead/img_playerhead_${iconID}.png`
+        `${STICKY_CDN_DOMAIN}/Content/Marvel/UI/Textures/Show/Playerhead/img_playerhead_${iconID}.png`
     );
 }
 
