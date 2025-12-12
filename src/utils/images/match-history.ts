@@ -12,20 +12,7 @@ import { getRankDetails } from '../functions/rank-utils';
 import { getMapById } from '../functions/maps';
 import { drawCircularImage } from './utils';
 import { STICKY_CDN_DOMAIN } from '../env';
-
-const seasons = [{
-    name: 'S0: Doom\'s rise',
-    value: 0
-}, {
-    name: 'S1: Eternal Night Falls',
-    value: 1
-}, {
-    name: 'S1.5: Eternal Night Falls',
-    value: 1.5
-}, {
-    name: 'S2: Hellfire Gala',
-    value: 2
-}] as const;
+import { Seasons } from '../constants';
 
 const gameModes = [{
     name: 'All',
@@ -47,11 +34,11 @@ const gameModes = [{
     value: 7
 }] as const;
 
-function getSeasonName(season?: number): typeof seasons[number]['name'] {
+function getSeasonName(season?: number): typeof Seasons[number]['name'] {
     if (season === undefined) {
-        return seasons[seasons.length - 1].name;
+        return Seasons[Seasons.length - 1].name;
     }
-    const seasonData = seasons.find((s) => s.value === season) ?? seasons[seasons.length - 1];
+    const seasonData = Seasons.find((s) => s.value === season) ?? Seasons[Seasons.length - 1];
     return seasonData.name;
 }
 
