@@ -272,7 +272,7 @@ export async function createMatchHistoryImage(t: CommandContext['t'], user: Play
         ctx.fillStyle = 'white';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
-        const gameModeText = getMapById(match.match_map_id)?.game_mode ?? 'Unknown Game Mode';
+        const gameModeText = getMapById(match.match_map_id)?.game_mode ?? 'Unknown';
         ctx.fillText(gameModeText, MARGIN.left + STATUS_TEXT_MARGIN, centerY);
 
         const gameDate = new Date(match.match_time_stamp * 1_000);
@@ -288,7 +288,7 @@ export async function createMatchHistoryImage(t: CommandContext['t'], user: Play
         ctx.fillStyle = '#A6A6A6';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
-        const mapName = getMapById(match.match_map_id)?.name ?? 'Unknown Map';
+        const mapName = getMapById(match.match_map_id)?.name ?? 'Unknown';
         ctx.fillText(mapName, MARGIN.left + STATUS_TEXT_MARGIN, centerY + TEXT_VERTICAL_SPACING * 1.15);
 
         const hero = match.match_player.player_hero;
