@@ -1,6 +1,7 @@
 import { type CommandContext, createStringOption, AttachmentBuilder, SubCommand, LocalesT, Declare, Options } from 'seyfert';
 
 import { generateProfileV1, generateProfileV2 } from '../../utils/images/profile';
+import { autocompleteUserCallback } from '../../utils/callbacks';
 
 const options = {
   'name-or-id': createStringOption({
@@ -8,7 +9,8 @@ const options = {
     locales: {
       name: 'commands.commonOptions.nameOrId.name',
       description: 'commands.commonOptions.nameOrId.description'
-    }
+    },
+    autocomplete: autocompleteUserCallback
   }),
   'game-mode': createStringOption({
     description: 'Choose the game mode to display stats for.',

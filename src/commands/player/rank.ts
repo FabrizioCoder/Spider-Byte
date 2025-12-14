@@ -4,6 +4,7 @@ import { createIntegerOption, createStringOption, createNumberOption, Attachment
 import { createIs } from 'typia';
 
 import { type ExpectedScoreInfo, generateRankChart } from '../../utils/images/ranked';
+import { autocompleteUserCallback } from '../../utils/callbacks';
 import { Seasons } from '../../utils/constants';
 
 const options = {
@@ -12,7 +13,8 @@ const options = {
         locales: {
             name: 'commands.commonOptions.nameOrId.name',
             description: 'commands.commonOptions.nameOrId.description'
-        }
+        },
+        autocomplete: autocompleteUserCallback
     }),
     season: createNumberOption({
         description: 'Season',

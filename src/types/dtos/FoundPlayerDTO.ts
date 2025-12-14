@@ -1,4 +1,4 @@
 export interface FoundPlayerDTO {
-    name: string;
-    uid: string;
+    readonly name: string;
+    readonly uid: string;
 }

@@ -2,7 +2,8 @@ import type { CommandContext, OKFunction } from 'seyfert';
 
 import { createIntegerOption, createStringOption, createNumberOption, SubCommand, LocalesT, Declare, Options } from 'seyfert';
 
-import { createMatchHistoryImage } from '../../utils/images/match-history';
+import { createMatchHistoryImage, GameModes } from '../../utils/images/match-history';
+import { autocompleteUserCallback } from '../../utils/callbacks';
 import { callbackPaginator } from '../../utils/paginator';
 import { Seasons } from '../../utils/constants';
 
@@ -19,7 +20,8 @@ const options = {
         locales: {
             name: 'commands.commonOptions.nameOrId.name',
             description: 'commands.commonOptions.nameOrId.description'
-        }
+        },
+        autocomplete: autocompleteUserCallback
     }),
     season: createNumberOption({
         description: 'Season',
@@ -45,25 +47,7 @@ const options = {
     }),
     game_mode: createIntegerOption({
         description: 'Game mode',
-        choices: [{
-            name: 'All',
-            value: 0
-        }, {
-            name: 'Quick Play',
-            value: 1
-        }, {
-            name: 'Competitive',
-            value: 2
-        }, {
-            name: 'Custom',
-            value: 3
-        }, {
-            name: 'Tournament',
-            value: 9
-        }, {
-            name: 'Vs AI',
-            value: 7
-        }] as const,
+        choices: GameModes,
         locales: {
             name: 'commands.commonOptions.gameMode.name',
             description: 'commands.commonOptions.gameMode.description'

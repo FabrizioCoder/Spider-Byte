@@ -2,13 +2,16 @@ import type { CommandContext } from 'seyfert';
 
 import { createStringOption, SubCommand, LocalesT, Declare, Options } from 'seyfert';
 
+import { autocompleteUserCallback } from '../../utils/callbacks';
+
 const options = {
     name: createStringOption({
         description: 'Enter the player name or ID to identify the player.',
         locales: {
             name: 'commands.commonOptions.name.name',
             description: 'commands.commonOptions.name.description'
-        }
+        },
+        autocomplete: autocompleteUserCallback
     })
 };
 

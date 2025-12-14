@@ -1,5 +1,5 @@
 {
-    "total_maps": 38,
+    "total_maps": 84,
     "maps": [
         {
             "id": 1032,
@@ -8,18 +8,17 @@
             "location": "Yggsgard",
             "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
             "game_mode": "Convoy",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1003,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/8nYwiVjhBWQ",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1032.png",
                 "/rivals/maps/medium/map_1032.png",
-                "/rivals/maps/large/map_1032.png"
-            ]
+                "/rivals/maps/large/map_1032.png",
+                "/premium/maps/xl/map_1032.png?expires=1763034204&signature=a12055ff665686ec1910f59c9ae82f2b1a0c9baa6682a3a8d14d59a24b9fbdb8"
+            ],
+            "video": "https://youtu.be/8nYwiVjhBWQ"
         },
         {
             "id": 1034,
@@ -28,37 +27,36 @@
             "location": "Tokyo 2099",
             "description": "Another world has emerged from the Timestream Entanglement! It's time to have some ramen and sushi after that nature walk! I'm thrilled that these foods still retain their classic flavors even in Tokyo of 2099! But it is a pity that there aren't any Kaiju or giant robots fighting in the city anymore...",
             "game_mode": "Convergence",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1021,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/8NUtV1CkyKs",
+            "is_competitive": false,
+            "sub_map_id": 1021,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1034.png",
                 "/rivals/maps/medium/map_1034.png",
-                "/rivals/maps/large/map_1034.png"
-            ]
+                "/rivals/maps/large/map_1034.png",
+                "/premium/maps/xl/map_1034.png?expires=1763034204&signature=a9f4555b2df110019373251acab0dac637794f97a3b808a9a153980b884fcd6c"
+            ],
+            "video": "https://youtu.be/8NUtV1CkyKs"
         },
         {
             "id": 1101,
             "name": "Hall of Djalia",
             "full_name": "Hall of Djalia - Intergalactic Empire of Wakanda",
             "location": "Intergalactic Empire of Wakanda",
+            "description": "",
             "game_mode": "Convergence",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1035,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/dz_778SYulo",
+            "is_competitive": false,
+            "sub_map_id": 1035,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1101.png",
                 "/rivals/maps/medium/map_1101.png",
-                "/rivals/maps/large/map_1101.png"
-            ]
+                "/rivals/maps/large/map_1101.png",
+                "/premium/maps/xl/map_1101.png?expires=1763034204&signature=f3d8e0255038138d4e3662474c19aac13c90c91e57a5f1c20b244e86d13da6f0"
+            ],
+            "video": "https://youtu.be/dz_778SYulo"
         },
         {
             "id": 1118,
@@ -67,18 +65,17 @@
             "location": "Empire of Eternal Night",
             "description": "Doctor Strange's Sanctum Sanctorum stands as the last beacon of hope in a city consumed by darkness. Protected by ancient wards and powerful magic, it serves as a refuge for those battling the chaos unleashed by Dracula and his legion. Explore its eerie corridors and powerful secrets as you prepare to face the chaos unleashed by Dracula's dark forces. Are you ready to step into the shadows and uncover the secrets of the Sanctum?",
             "game_mode": "Doom match",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1078,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/pVlerpIo3Pk",
+            "is_competitive": false,
+            "sub_map_id": 1078,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1118.png",
                 "/rivals/maps/medium/map_1118.png",
-                "/rivals/maps/large/map_1118.png"
-            ]
+                "/rivals/maps/large/map_1118.png",
+                "/premium/maps/xl/map_1118.png?expires=1763034204&signature=976195dbc40fe029e2dfb3589f242127bcc56b3a486bfb291d1ea6dfe7338cbe"
+            ],
+            "video": "https://youtu.be/pVlerpIo3Pk"
         },
         {
             "id": 1148,
@@ -87,18 +84,35 @@
             "location": "Tokyo 2099",
             "description": "Take a journey above Tokyo 2099 into the Web of Life and Destiny! To patch up the temporal rift, the Master Weaver is working around the clock to spin his magic while also suspending an entire network of islands aloft, far above from the urban hustle. As a lover of time, he's preserved many more classic Japanese elements, from zen gardens to his own sacred tenshu, where he protects a personal sliver of the Web of Life and Destiny itself. It seems that weaving the Multiverse back together is difficult for one spider, so let's get Spider-Zero back in action!",
             "game_mode": "Convoy",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1060,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/jqnZzywDfTs",
+            "is_competitive": false,
+            "sub_map_id": 1060,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1148.png",
                 "/rivals/maps/medium/map_1148.png",
-                "/rivals/maps/large/map_1148.png"
-            ]
+                "/rivals/maps/large/map_1148.png",
+                "/premium/maps/xl/map_1148.png?expires=1763034204&signature=51a3a77c44e3363e271de958501b7c99febb783c36b7a0da950966b0bd8bcad1"
+            ],
+            "video": "https://youtu.be/jqnZzywDfTs"
+        },
+        {
+            "id": 1154,
+            "name": "ODIN'S ARCHIVE",
+            "full_name": "Odin's Archive",
+            "location": "",
+            "description": "",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1154.png",
+                "/rivals/maps/medium/map_1154.png",
+                "/rivals/maps/large/map_1154.png"
+            ],
+            "video": null
         },
         {
             "id": 1155,
@@ -107,18 +121,17 @@
             "location": "Yggsgard",
             "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
             "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1003,
-                "name": "Bifrost Garden",
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/8nYwiVjhBWQ",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": "Bifrost Garden",
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1155.png",
                 "/rivals/maps/medium/map_1155.png",
-                "/rivals/maps/large/map_1155.png"
-            ]
+                "/rivals/maps/large/map_1155.png",
+                "/premium/maps/xl/map_1155.png?expires=1763034204&signature=95e5000cce74b7e1bffaf1f2090b8aded2a2c54a2e9b5af622eafb95fcdcd72d"
+            ],
+            "video": "https://youtu.be/8nYwiVjhBWQ"
         },
         {
             "id": 1156,
@@ -127,18 +140,17 @@
             "location": "Yggsgard",
             "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
             "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1003,
-                "name": "Throne Room",
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/8nYwiVjhBWQ",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": "Throne Room",
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1156.png",
                 "/rivals/maps/medium/map_1156.png",
-                "/rivals/maps/large/map_1156.png"
-            ]
+                "/rivals/maps/large/map_1156.png",
+                "/premium/maps/xl/map_1156.png?expires=1763034204&signature=c7e35e327dfacb50f171b067ed8a7e8ef223290670a07451a116b050f3e25e7e"
+            ],
+            "video": "https://youtu.be/8nYwiVjhBWQ"
         },
         {
             "id": 1161,
@@ -147,18 +159,17 @@
             "location": "Intergalactic Empire of Wakanda",
             "description": "From a single Vibranium meteorite, Wakanda rose to greatness. Now, at the heart of the galaxy, they’ve uncovered the homeland of that very mound. But no matter how far it's technology advances, Wakanda's strength will always be its people. Wakanda Forever!",
             "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1067,
-                "name": "Stellar Spaceport",
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/Sc_cXElDvU0",
+            "is_competitive": false,
+            "sub_map_id": 1067,
+            "sub_map_name": "Stellar Spaceport",
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1161.png",
                 "/rivals/maps/medium/map_1161.png",
-                "/rivals/maps/large/map_1161.png"
-            ]
+                "/rivals/maps/large/map_1161.png",
+                "/premium/maps/xl/map_1161.png?expires=1763034204&signature=911e3b319be09423cef6fd96d9266f5bd52435c5ac2c416e68199ff1d13971d9"
+            ],
+            "video": "https://youtu.be/Sc_cXElDvU0"
         },
         {
             "id": 1162,
@@ -167,18 +178,17 @@
             "location": "Intergalactic Empire of Wakanda",
             "description": "From a single Vibranium meteorite, Wakanda rose to greatness. Now, at the heart of the galaxy, they’ve uncovered the homeland of that very mound. But no matter how far it's technology advances, Wakanda's strength will always be its people. Wakanda Forever!",
             "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1064,
-                "name": "Imperial Institute of Science",
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/Sc_cXElDvU0",
+            "is_competitive": false,
+            "sub_map_id": 1064,
+            "sub_map_name": "Imperial Institute of Science",
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1162.png",
                 "/rivals/maps/medium/map_1162.png",
-                "/rivals/maps/large/map_1162.png"
-            ]
+                "/rivals/maps/large/map_1162.png",
+                "/premium/maps/xl/map_1162.png?expires=1763034204&signature=05abcc976d0721222df62f6e6696a91488a6fbb98e06a222cf90d84bdba944bb"
+            ],
+            "video": "https://youtu.be/Sc_cXElDvU0"
         },
         {
             "id": 1169,
@@ -187,18 +197,17 @@
             "location": "Intergalactic Empire of Wakanda",
             "description": "From a single Vibranium meteorite, Wakanda rose to greatness. Now, at the heart of the galaxy, they’ve uncovered the homeland of that very mound. But no matter how far it's technology advances, Wakanda's strength will always be its people. Wakanda Forever!",
             "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1065,
-                "name": "Warrior Falls",
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/Sc_cXElDvU0",
+            "is_competitive": false,
+            "sub_map_id": 1065,
+            "sub_map_name": "Warrior Falls",
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1169.png",
                 "/rivals/maps/medium/map_1169.png",
-                "/rivals/maps/large/map_1169.png"
-            ]
+                "/rivals/maps/large/map_1169.png",
+                "/premium/maps/xl/map_1169.png?expires=1763034204&signature=a10a9117a92945c5ecf5914de43f08ff1c8c71224c8d0a23f704458ac0dc7af8"
+            ],
+            "video": "https://youtu.be/Sc_cXElDvU0"
         },
         {
             "id": 1170,
@@ -207,18 +216,17 @@
             "location": "Yggsgard",
             "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
             "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1003,
-                "name": "Odin's Archive",
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/8nYwiVjhBWQ",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": "Odin's Archive",
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1170.png",
                 "/rivals/maps/medium/map_1170.png",
-                "/rivals/maps/large/map_1170.png"
-            ]
+                "/rivals/maps/large/map_1170.png",
+                "/premium/maps/xl/map_1170.png?expires=1763034204&signature=11eb2aec4dc133b869c322f09c57baa84a35e1ea9018c5c32343762e55c2b334"
+            ],
+            "video": "https://youtu.be/8nYwiVjhBWQ"
         },
         {
             "id": 1201,
@@ -227,434 +235,17 @@
             "location": "Empire of Eternal Night",
             "description": "Midtown has fallen into eternal night, overrun by Dracula and his bloodthirsty legions. Iconic landmarks like the Baxter Building and Grand Central Terminal have become battlegrounds in the fight for survival. Heroes must navigate the twisted streets and uncover the secrets lurking in the heart of the darkness.",
             "game_mode": "Convoy",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1112,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/DmtMVOcHr-8",
+            "is_competitive": false,
+            "sub_map_id": 1112,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1201.png",
                 "/rivals/maps/medium/map_1201.png",
-                "/rivals/maps/large/map_1201.png"
-            ]
-        },
-        {
-            "id": 1230,
-            "name": "Shin-Shibuya",
-            "full_name": "Shin-Shibuya - Tokyo 2099",
-            "location": "Tokyo 2099",
-            "description": "Another world has emerged from the Timestream Entanglement! It's time to have some ramen and sushi after that nature walk! I'm thrilled that these foods still retain their classic flavors even in Tokyo of 2099! But it is a pity that there aren't any Kaiju or giant robots fighting in the city anymore...",
-            "game_mode": "Convergence",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1021,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/8NUtV1CkyKs",
-            "images": [
-                "/rivals/maps/map_1230.png",
-                "/rivals/maps/medium/map_1230.png",
-                "/rivals/maps/large/map_1230.png"
-            ]
-        },
-        {
-            "id": 1231,
-            "name": "Yggdrasill Path",
-            "full_name": "Yggdrasill Path - Yggsgard",
-            "location": "Yggsgard",
-            "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
-            "game_mode": "Convoy",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1003,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/8nYwiVjhBWQ",
-            "images": [
-                "/rivals/maps/map_1231.png",
-                "/rivals/maps/medium/map_1231.png",
-                "/rivals/maps/large/map_1231.png"
-            ]
-        },
-        {
-            "id": 1235,
-            "name": "Birnin T'Challa",
-            "full_name": "Birnin T'Challa - Intergalactic Empire of Wakanda",
-            "location": "Intergalactic Empire of Wakanda",
-            "description": "From a single Vibranium meteorite, Wakanda rose to greatness. Now, at the heart of the galaxy, they’ve uncovered the homeland of that very mound. But no matter how far it's technology advances, Wakanda's strength will always be its people. Wakanda Forever!",
-            "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1108,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/Sc_cXElDvU0",
-            "images": [
-                "/rivals/maps/map_1235.png",
-                "/rivals/maps/medium/map_1235.png",
-                "/rivals/maps/large/map_1235.png"
-            ]
-        },
-        {
-            "id": 1236,
-            "name": "Royal Palace",
-            "full_name": "Royal Palace - Yggsgard",
-            "location": "Yggsgard",
-            "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
-            "game_mode": "Domination",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1003,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/8nYwiVjhBWQ",
-            "images": [
-                "/rivals/maps/map_1236.png",
-                "/rivals/maps/medium/map_1236.png",
-                "/rivals/maps/large/map_1236.png"
-            ]
-        },
-        {
-            "id": 1240,
-            "name": "Symbiotic Surface",
-            "full_name": "Symbiotic Surface - Klyntar",
-            "location": "Klyntar",
-            "description": "Stirred awake by the Timestream Entanglement, Knull taps into Chronovium to spread his dark divinity across the gods and free himself from his prison planet: Klyntar. Sensing the looming threat, Venom rushes to consume the severed essence of the god before Knull fully revives! On a mission from Shuri, the Milano malfunctions and crash lands in the ruins of the Agents of the Cosmos. Now, the Guardians of the Galaxy clash with Venom over how to use this dark power. Will they decide to join forces against Knull or will true evil ultimately emerge victorious?",
-            "game_mode": "Convergence",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1109,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/zEaFAj8h0ow",
-            "images": [
-                "/rivals/maps/map_1240.png",
-                "/rivals/maps/medium/map_1240.png",
-                "/rivals/maps/large/map_1240.png"
-            ]
-        },
-        {
-            "id": 1243,
-            "name": "Super-Soldier Factory",
-            "full_name": "Super-Soldier Factory - Hydra Charteris Base",
-            "location": "Hydra Charteris Base",
-            "description": "Battered into dormancy for decades, Hydra has hidden its dark ambitions behind the chaos of the times... but as time falls apart, that chaos will usher in a new era for the evil organization... Beneath Charteris Base in Antarctica, Hydra has reawakened a gateway to its otherworldly deity, and the key is the crystal formed from chronal energy. As the ancient Hive approaches from beyond, Hydra seeks to channel its power into a new army of super-soldiers. As the ancient cult prepares to welcome all timelines to its alien chorus, are the heroes truly prepared to confront the many heads of Hydra?",
-            "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1184,
-                "name": "Super-Soldier Factory",
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/vSQ3D9-dWbA",
-            "images": [
-                "/rivals/maps/map_1243.png",
-                "/rivals/maps/medium/map_1243.png",
-                "/rivals/maps/large/map_1243.png"
-            ]
-        },
-        {
-            "id": 1244,
-            "name": "Frozen Airfield",
-            "full_name": "Frozen Airfield - Hydra Charteris Base",
-            "location": "Hydra Charteris Base",
-            "description": "Battered into dormancy for decades, Hydra has hidden its dark ambitions behind the chaos of the times... but as time falls apart, that chaos will usher in a new era for the evil organization... Beneath Charteris Base in Antarctica, Hydra has reawakened a gateway to its otherworldly deity, and the key is the crystal formed from chronal energy. As the ancient Hive approaches from beyond, Hydra seeks to channel its power into a new army of super-soldiers. As the ancient cult prepares to welcome all timelines to its alien chorus, are the heroes truly prepared to confront the many heads of Hydra?",
-            "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1184,
-                "name": "Frozen Airfield",
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/vSQ3D9-dWbA",
-            "images": [
-                "/rivals/maps/map_1244.png",
-                "/rivals/maps/medium/map_1244.png",
-                "/rivals/maps/large/map_1244.png"
-            ]
-        },
-        {
-            "id": 1245,
-            "name": "Spider-Islands",
-            "full_name": "Spider-Islands - Tokyo 2099",
-            "location": "Tokyo 2099",
-            "description": "Take a journey above Tokyo 2099 into the Web of Life and Destiny! To patch up the temporal rift, the Master Weaver is working around the clock to spin his magic while also suspending an entire network of islands aloft, far above from the urban hustle. As a lover of time, he's preserved many more classic Japanese elements, from zen gardens to his own sacred tenshu, where he protects a personal sliver of the Web of Life and Destiny itself. It seems that weaving the Multiverse back together is difficult for one spider, so let's get Spider-Zero back in action!",
-            "game_mode": "Convoy",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1060,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/jqnZzywDfTs",
-            "images": [
-                "/rivals/maps/map_1245.png",
-                "/rivals/maps/medium/map_1245.png",
-                "/rivals/maps/large/map_1245.png"
-            ]
-        },
-        {
-            "id": 1246,
-            "name": "Ninomaru",
-            "full_name": "Ninomaru - Tokyo 2099",
-            "location": "Tokyo 2099",
-            "game_mode": "Conquest",
-            "is_competitve": false,
-            "sub_map": {
-                "id": null,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/jqnZzywDfTs",
-            "images": [
-                "/rivals/maps/map_1246.png",
-                "/rivals/maps/medium/map_1246.png",
-                "/rivals/maps/large/map_1246.png"
-            ]
-        },
-        {
-            "id": 1254,
-            "name": "Royal Palace",
-            "full_name": "Royal Palace - Yggsgard",
-            "location": "Yggsgard",
-            "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
-            "game_mode": "Jeff's winter splash festival",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1003,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/8nYwiVjhBWQ",
-            "images": [
-                "/rivals/maps/map_1254.png",
-                "/rivals/maps/medium/map_1254.png",
-                "/rivals/maps/large/map_1254.png"
-            ]
-        },
-        {
-            "id": 1267,
-            "name": "Hall of Djalia",
-            "full_name": "Hall of Djalia - Intergalactic Empire of Wakanda",
-            "location": "Intergalactic Empire of Wakanda",
-            "game_mode": "Convergence",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1035,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/Sc_cXElDvU0",
-            "images": [
-                "/rivals/maps/map_1267.png",
-                "/rivals/maps/medium/map_1267.png",
-                "/rivals/maps/large/map_1267.png"
-            ]
-        },
-        {
-            "id": 1272,
-            "name": "Birnin T'Challa",
-            "full_name": "Birnin T'Challa - Intergalactic Empire of Wakanda",
-            "location": "Intergalactic Empire of Wakanda",
-            "description": "From a single Vibranium meteorite, Wakanda rose to greatness. Now, at the heart of the galaxy, they’ve uncovered the homeland of that very mound. But no matter how far it's technology advances, Wakanda's strength will always be its people. Wakanda Forever!",
-            "game_mode": "Domination",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1108,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/Sc_cXElDvU0",
-            "images": [
-                "/rivals/maps/map_1272.png",
-                "/rivals/maps/medium/map_1272.png",
-                "/rivals/maps/large/map_1272.png"
-            ]
-        },
-        {
-            "id": 1287,
-            "name": "Hell's Heaven",
-            "full_name": "Hell's Heaven - Hydra Charteris Base",
-            "location": "Hydra Charteris Base",
-            "description": "Battered into dormancy for decades, Hydra has hidden its dark ambitions behind the chaos of the times... but as time falls apart, that chaos will usher in a new era for the evil organization... Beneath Charteris Base in Antarctica, Hydra has reawakened a gateway to its otherworldly deity, and the key is the crystal formed from chronal energy. As the ancient Hive approaches from beyond, Hydra seeks to channel its power into a new army of super-soldiers. As the ancient cult prepares to welcome all timelines to its alien chorus, are the heroes truly prepared to confront the many heads of Hydra?",
-            "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1184,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/vSQ3D9-dWbA",
-            "images": [
-                "/rivals/maps/map_1287.png",
-                "/rivals/maps/medium/map_1287.png",
-                "/rivals/maps/large/map_1287.png"
-            ]
-        },
-        {
-            "id": 1288,
-            "name": "Hell's Heaven",
-            "full_name": "Hell's Heaven - Hydra Charteris Base",
-            "location": "Hydra Charteris Base",
-            "description": "Battered into dormancy for decades, Hydra has hidden its dark ambitions behind the chaos of the times... but as time falls apart, that chaos will usher in a new era for the evil organization... Beneath Charteris Base in Antarctica, Hydra has reawakened a gateway to its otherworldly deity, and the key is the crystal formed from chronal energy. As the ancient Hive approaches from beyond, Hydra seeks to channel its power into a new army of super-soldiers. As the ancient cult prepares to welcome all timelines to its alien chorus, are the heroes truly prepared to confront the many heads of Hydra?",
-            "game_mode": "Domination",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1184,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/vSQ3D9-dWbA",
-            "images": [
-                "/rivals/maps/map_1288.png",
-                "/rivals/maps/medium/map_1288.png",
-                "/rivals/maps/large/map_1288.png"
-            ]
-        },
-        {
-            "id": 1289,
-            "name": "Dancing Stage",
-            "full_name": "Dancing Stage - Intergalactic Empire of Wakanda",
-            "location": "Intergalactic Empire of Wakanda",
-            "game_mode": "Clash of dancing lions",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1274,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": null,
-            "images": [
-                "/rivals/maps/map_1289.png",
-                "/rivals/maps/medium/map_1289.png",
-                "/rivals/maps/large/map_1289.png"
-            ]
-        },
-        {
-            "id": 1290,
-            "name": "Symbiotic Surface",
-            "full_name": "Symbiotic Surface - Klyntar",
-            "location": "Klyntar",
-            "description": "Stirred awake by the Timestream Entanglement, Knull taps into Chronovium to spread his dark divinity across the gods and free himself from his prison planet: Klyntar. Sensing the looming threat, Venom rushes to consume the severed essence of the god before Knull fully revives! On a mission from Shuri, the Milano malfunctions and crash lands in the ruins of the Agents of the Cosmos. Now, the Guardians of the Galaxy clash with Venom over how to use this dark power. Will they decide to join forces against Knull or will true evil ultimately emerge victorious?",
-            "game_mode": "Convergence",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1109,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/zEaFAj8h0ow",
-            "images": [
-                "/rivals/maps/map_1290.png",
-                "/rivals/maps/medium/map_1290.png",
-                "/rivals/maps/large/map_1290.png"
-            ]
-        },
-        {
-            "id": 1291,
-            "name": "Midtown",
-            "full_name": "Midtown - Empire of Eternal Night",
-            "location": "Empire of Eternal Night",
-            "description": "Midtown has fallen into eternal night, overrun by Dracula and his bloodthirsty legions. Iconic landmarks like the Baxter Building and Grand Central Terminal have become battlegrounds in the fight for survival. Heroes must navigate the twisted streets and uncover the secrets lurking in the heart of the darkness.",
-            "game_mode": "Convoy",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1112,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/DmtMVOcHr-8",
-            "images": [
-                "/rivals/maps/map_1291.png",
-                "/rivals/maps/medium/map_1291.png",
-                "/rivals/maps/large/map_1291.png"
-            ]
-        },
-        {
-            "id": 1246,
-            "name": "Ninomaru",
-            "full_name": "Ninomaru - Tokyo 2099",
-            "location": "Tokyo 2099",
-            "description": "Take a journey above Tokyo 2099 into the Web of Life and Destiny! To patch up the temporal rift, the Master Weaver is working around the clock to spin his magic while also suspending an entire network of islands aloft, far above from the urban hustle. As a lover of time, he's preserved many more classic Japanese elements, from zen gardens to his own sacred tenshu, where he protects a personal sliver of the Web of Life and Destiny itself. It seems that weaving the Multiverse back together is difficult for one spider, so let's get Spider-Zero back in action!",
-            "game_mode": "Conquest",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 0,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": null,
-            "images": [
-                "/rivals/maps/map_1246.png",
-                "/rivals/maps/medium/map_1246.png",
-                "/rivals/maps/large/map_1246.png"
-            ]
-        },
-        {
-            "id": 1254,
-            "name": "Royal Palace",
-            "full_name": "Royal Palace - Yggsgard",
-            "location": "Yggsgard",
-            "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
-            "game_mode": "JEFF'S WINTER SPLASH FESTIVAL",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1003,
-                "name": "Royal Palace",
-                "thumbnail": null
-            },
-            "video": null,
-            "images": [
-                "/rivals/maps/map_1254.png",
-                "/rivals/maps/medium/map_1254.png",
-                "/rivals/maps/large/map_1254.png"
-            ]
-        },
-        {
-            "id": 1267,
-            "name": "Hall of Djalia",
-            "full_name": "Hall of Djalia - Intergalactic Empire of Wakanda",
-            "location": "Intergalactic Empire of Wakanda",
-            "game_mode": "Convergence",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1035,
-                "name": null,
-                "thumbnail": "/rivals/maps/map_1267.png"
-            },
-            "video": "https://youtu.be/8nYwiVjhBWQ",
-            "images": [
-                "/rivals/maps/map_1267.png",
-                "/rivals/maps/medium/map_1267.png",
-                "/rivals/maps/large/map_1267.png"
-            ]
-        },
-        {
-            "id": 1292,
-            "name": "Central Park",
-            "full_name": "Central Park - Empire of Eternal Night",
-            "location": "Empire of Eternal Night",
-            "description": "When the Timestream Entanglement swept over New York City, Dracula seized the opportunity with Doctor Doom's gift, stopping the moon and declaring an eternal night with the power of Chronovium! Now, the heroes are ready to take the battle to his gothic headquarters within Central Park.. Traverse into complete darkness to discover the imprisoned powers on the path to Dracula's Castle.",
-            "game_mode": "Convergence",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1111,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/fs_pMBXSr9Y",
-            "images": [
-                "/rivals/maps/map_1292.png",
-                "/rivals/maps/medium/map_1292.png",
-                "/rivals/maps/large/map_1292.png"
-            ]
+                "/rivals/maps/large/map_1201.png",
+                "/premium/maps/xl/map_1201.png?expires=1763034204&signature=ae3276a263455031d7c2f82b6eb1066d61d1ab23028e873f0816c85782bf780a"
+            ],
+            "video": "https://youtu.be/DmtMVOcHr-8"
         },
         {
             "id": 1217,
@@ -663,18 +254,473 @@
             "location": "Empire of Eternal Night",
             "description": "When the Timestream Entanglement swept over New York City, Dracula seized the opportunity with Doctor Doom's gift, stopping the moon and declaring an eternal night with the power of Chronovium! Now, the heroes are ready to take the battle to his gothic headquarters within Central Park.. Traverse into complete darkness to discover the imprisoned powers on the path to Dracula's Castle.",
             "game_mode": "Convergence",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 1111,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/fs_pMBXSr9Y",
+            "is_competitive": false,
+            "sub_map_id": 1111,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1217.png",
                 "/rivals/maps/medium/map_1217.png",
-                "/rivals/maps/large/map_1217.png"
-            ]
+                "/rivals/maps/large/map_1217.png",
+                "/premium/maps/xl/map_1217.png?expires=1763034204&signature=91d206a79ea9650230708ef783af5fbae16a1b50f6908ce90334b28950911f79"
+            ],
+            "video": "https://youtu.be/fs_pMBXSr9Y"
+        },
+        {
+            "id": 1230,
+            "name": "Shin-Shibuya",
+            "full_name": "Shin-Shibuya - Tokyo 2099",
+            "location": "Tokyo 2099",
+            "description": "Another world has emerged from the Timestream Entanglement! It's time to have some ramen and sushi after that nature walk! I'm thrilled that these foods still retain their classic flavors even in Tokyo of 2099! But it is a pity that there aren't any Kaiju or giant robots fighting in the city anymore...",
+            "game_mode": "Convergence",
+            "is_competitive": true,
+            "sub_map_id": 1021,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1230.png",
+                "/rivals/maps/medium/map_1230.png",
+                "/rivals/maps/large/map_1230.png",
+                "/premium/maps/xl/map_1230.png?expires=1763034204&signature=c6671ca397aad01255a4dd4eb0f7fd377fe007b72576e6ccf3feeeed3c3339ee"
+            ],
+            "video": "https://youtu.be/8NUtV1CkyKs"
+        },
+        {
+            "id": 1231,
+            "name": "Yggdrasill Path",
+            "full_name": "Yggdrasill Path - Yggsgard",
+            "location": "Yggsgard",
+            "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
+            "game_mode": "Convoy",
+            "is_competitive": true,
+            "sub_map_id": 1003,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1231.png",
+                "/rivals/maps/medium/map_1231.png",
+                "/rivals/maps/large/map_1231.png",
+                "/premium/maps/xl/map_1231.png?expires=1763034204&signature=0a040b94fd3868ad48740a4a203b6412a4f51ff67a6d4e40fcbd5f6122da69eb"
+            ],
+            "video": "https://youtu.be/8nYwiVjhBWQ"
+        },
+        {
+            "id": 1235,
+            "name": "Birnin T'Challa",
+            "full_name": "Birnin T'Challa - Intergalactic Empire of Wakanda",
+            "location": "Intergalactic Empire of Wakanda",
+            "description": "From a single Vibranium meteorite, Wakanda rose to greatness. Now, at the heart of the galaxy, they’ve uncovered the homeland of that very mound. But no matter how far it's technology advances, Wakanda's strength will always be its people. Wakanda Forever!",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": 1108,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1235.png",
+                "/rivals/maps/medium/map_1235.png",
+                "/rivals/maps/large/map_1235.png",
+                "/premium/maps/xl/map_1235.png?expires=1763034204&signature=b9831fc116cc865c40f8d046a2ffc995146b4d658b061e4170d40b62220c0d90"
+            ],
+            "video": "https://youtu.be/Sc_cXElDvU0"
+        },
+        {
+            "id": 1236,
+            "name": "Royal Palace",
+            "full_name": "Royal Palace - Yggsgard",
+            "location": "Yggsgard",
+            "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
+            "game_mode": "Domination",
+            "is_competitive": true,
+            "sub_map_id": 1003,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1236.png",
+                "/rivals/maps/medium/map_1236.png",
+                "/rivals/maps/large/map_1236.png",
+                "/premium/maps/xl/map_1236.png?expires=1763034204&signature=ccdc11ee3e46d67cebe9c11a4ea59de17887d7c6bc68402d2d3afb26efb4c6d6"
+            ],
+            "video": "https://youtu.be/8nYwiVjhBWQ"
+        },
+        {
+            "id": 1240,
+            "name": "Symbiotic Surface",
+            "full_name": "Symbiotic Surface - Klyntar",
+            "location": "Klyntar",
+            "description": "Stirred awake by the Timestream Entanglement, Knull taps into Chronovium to spread his dark divinity across the gods and free himself from his prison planet: Klyntar. Sensing the looming threat, Venom rushes to consume the severed essence of the god before Knull fully revives! On a mission from Shuri, the Milano malfunctions and crash lands in the ruins of the Agents of the Cosmos. Now, the Guardians of the Galaxy clash with Venom over how to use this dark power. Will they decide to join forces against Knull or will true evil ultimately emerge victorious?",
+            "game_mode": "Convergence",
+            "is_competitive": false,
+            "sub_map_id": 1109,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1240.png",
+                "/rivals/maps/medium/map_1240.png",
+                "/rivals/maps/large/map_1240.png",
+                "/premium/maps/xl/map_1240.png?expires=1763034204&signature=f4a453a80085b4fb5f4c663ad245a43d426ca2b26e3b4df69f917be2de4e016f"
+            ],
+            "video": "https://youtu.be/zEaFAj8h0ow"
+        },
+        {
+            "id": 1243,
+            "name": "Frozen Airfield",
+            "full_name": "Frozen Airfield - Hydra Charteris Base",
+            "location": "Hydra Charteris Base",
+            "description": "Battered into dormancy for decades, Hydra has hidden its dark ambitions behind the chaos of the times... but as time falls apart, that chaos will usher in a new era for the evil organization... Beneath Charteris Base in Antarctica, Hydra has reawakened a gateway to its otherworldly deity, and the key is the crystal formed from chronal energy. As the ancient Hive approaches from beyond, Hydra seeks to channel its power into a new army of super-soldiers. As the ancient cult prepares to welcome all timelines to its alien chorus, are the heroes truly prepared to confront the many heads of Hydra?",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": 1184,
+            "sub_map_name": "Super-Soldier Factory",
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1243.png",
+                "/rivals/maps/medium/map_1243.png",
+                "/rivals/maps/large/map_1243.png",
+                "/premium/maps/xl/map_1243.png?expires=1763034204&signature=ebab771a8bcfe020a31a67361ffdc2683e3b75e383f15933f1490a01eb1845f1"
+            ],
+            "video": "https://youtu.be/vSQ3D9-dWbA"
+        },
+        {
+            "id": 1244,
+            "name": "Super-Soldier Factory",
+            "full_name": "Super-Soldier Factory - Hydra Charteris Base",
+            "location": "Hydra Charteris Base",
+            "description": "Battered into dormancy for decades, Hydra has hidden its dark ambitions behind the chaos of the times... but as time falls apart, that chaos will usher in a new era for the evil organization... Beneath Charteris Base in Antarctica, Hydra has reawakened a gateway to its otherworldly deity, and the key is the crystal formed from chronal energy. As the ancient Hive approaches from beyond, Hydra seeks to channel its power into a new army of super-soldiers. As the ancient cult prepares to welcome all timelines to its alien chorus, are the heroes truly prepared to confront the many heads of Hydra?",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": 1184,
+            "sub_map_name": "Frozen Airfield",
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1244.png",
+                "/rivals/maps/medium/map_1244.png",
+                "/rivals/maps/large/map_1244.png",
+                "/premium/maps/xl/map_1244.png?expires=1763034204&signature=f18170599d090c6b87bb95f38b2b6b981c19430d21b780d64b6a8bbe7344eade"
+            ],
+            "video": "https://youtu.be/vSQ3D9-dWbA"
+        },
+        {
+            "id": 1245,
+            "name": "Spider-Islands",
+            "full_name": "Spider-Islands - Tokyo 2099",
+            "location": "Tokyo 2099",
+            "description": "Take a journey above Tokyo 2099 into the Web of Life and Destiny! To patch up the temporal rift, the Master Weaver is working around the clock to spin his magic while also suspending an entire network of islands aloft, far above from the urban hustle. As a lover of time, he's preserved many more classic Japanese elements, from zen gardens to his own sacred tenshu, where he protects a personal sliver of the Web of Life and Destiny itself. It seems that weaving the Multiverse back together is difficult for one spider, so let's get Spider-Zero back in action!",
+            "game_mode": "Convoy",
+            "is_competitive": true,
+            "sub_map_id": 1060,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1245.png",
+                "/rivals/maps/medium/map_1245.png",
+                "/rivals/maps/large/map_1245.png",
+                "/premium/maps/xl/map_1245.png?expires=1763034204&signature=2c4b4b997b337a0ab79793b058d249ae56c486978d316cd452cc0361d625519c"
+            ],
+            "video": "https://youtu.be/jqnZzywDfTs"
+        },
+        {
+            "id": 1246,
+            "name": "Ninomaru",
+            "full_name": "Ninomaru - Tokyo 2099",
+            "location": "Tokyo 2099",
+            "description": "",
+            "game_mode": "Conquest",
+            "is_competitive": false,
+            "sub_map_id": null,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1246.png",
+                "/rivals/maps/medium/map_1246.png",
+                "/rivals/maps/large/map_1246.png",
+                "/premium/maps/xl/map_1246.png?expires=1763034204&signature=481366142f77f04a9ba016cc60d310a675701fa16cc39bbdbb1ce85f9b629038"
+            ],
+            "video": "https://youtu.be/jqnZzywDfTs"
+        },
+        {
+            "id": 1254,
+            "name": "Royal Palace",
+            "full_name": "Royal Palace - Yggsgard",
+            "location": "Yggsgard",
+            "description": "Beneath the sky-shutting canopy of the World Tree, Yggdrasill, lies the golden glory of Asgard, realm of the gods, now overgrown with the roots and flora. However, the throne-seizing scheme of Loki, god of mischief, threatens the ever-lasting prosperity of this kingdom and all of the Ten Realms.",
+            "game_mode": "JEFF'S WINTER SPLASH FESTIVAL",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": "Royal Palace",
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1254.png",
+                "/rivals/maps/medium/map_1254.png",
+                "/rivals/maps/large/map_1254.png",
+                "/premium/maps/xl/map_1254.png?expires=1763034204&signature=394e0e85995f33ef6cb58a5e93c68e3146472ea5fbaf2d2753394ddc7bf0ea13"
+            ],
+            "video": null
+        },
+        {
+            "id": 1267,
+            "name": "Hall of Djalia",
+            "full_name": "Hall of Djalia - Intergalactic Empire of Wakanda",
+            "location": "Intergalactic Empire of Wakanda",
+            "description": "",
+            "game_mode": "Convergence",
+            "is_competitive": true,
+            "sub_map_id": 1035,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1267.png",
+                "/rivals/maps/medium/map_1267.png",
+                "/rivals/maps/large/map_1267.png",
+                "/premium/maps/xl/map_1267.png?expires=1763034204&signature=599616b6cb2e6c52adc734255989dde04693e3627216095b57d14542560e24f7"
+            ],
+            "video": "https://youtu.be/Sc_cXElDvU0"
+        },
+        {
+            "id": 1272,
+            "name": "Birnin T'Challa",
+            "full_name": "Birnin T'Challa - Intergalactic Empire of Wakanda",
+            "location": "Intergalactic Empire of Wakanda",
+            "description": "From a single Vibranium meteorite, Wakanda rose to greatness. Now, at the heart of the galaxy, they’ve uncovered the homeland of that very mound. But no matter how far it's technology advances, Wakanda's strength will always be its people. Wakanda Forever!",
+            "game_mode": "Domination",
+            "is_competitive": true,
+            "sub_map_id": 1108,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1272.png",
+                "/rivals/maps/medium/map_1272.png",
+                "/rivals/maps/large/map_1272.png",
+                "/premium/maps/xl/map_1272.png?expires=1763034204&signature=1c6d86faec2ab56e72e19414e46423cdc15599b448eaa504ee8deea17e39671e"
+            ],
+            "video": "https://youtu.be/Sc_cXElDvU0"
+        },
+        {
+            "id": 1273,
+            "name": "Grove",
+            "full_name": "Hellfire Gala: Krakoa",
+            "location": "Hellfire Gala",
+            "description": "The 2099 Hellfire Gala is underway, and Emma Frost is dazzling in her finery, expertly mingling with the crowd. With guests being properly entertained and the Mutants’ guards down, the timing is perfect for Ultron to crash this invite-only event! It’s up to the Quiet Council to get these unruly invaders under control, and their guests safe.\n\nMove with grace and precision across the Gala to stop the imminent infection being spread by Ultron and his robots.\n\nCan you keep your cool and elegance in the face of disaster?",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1273.png",
+                "/rivals/maps/medium/map_1273.png",
+                "/rivals/maps/large/map_1273.png",
+                "/premium/maps/xl/map_1273.png?expires=1763034204&signature=413d5f560f583b086d392576a2e3242b3bb1f23565684e542e0885ad5e940cbe"
+            ],
+            "video": "https://youtu.be/xIo0RxLYkQU"
+        },
+        {
+            "id": 1281,
+            "name": "Carousel",
+            "full_name": "Hellfire Gala: Krakoa",
+            "location": "Hellfire Gala",
+            "description": "The 2099 Hellfire Gala is underway, and Emma Frost is dazzling in her finery, expertly mingling with the crowd. With guests being properly entertained and the Mutants’ guards down, the timing is perfect for Ultron to crash this invite-only event! It’s up to the Quiet Council to get these unruly invaders under control, and their guests safe.\n\nMove with grace and precision across the Gala to stop the imminent infection being spread by Ultron and his robots.\n\nCan you keep your cool and elegance in the face of disaster?",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1281.png",
+                "/rivals/maps/medium/map_1281.png",
+                "/rivals/maps/large/map_1281.png",
+                "/premium/maps/xl/map_1281.png?expires=1763034204&signature=e7f3acbbd9d801d6a2cb4e636f65d97c15abe8290a221ca87e9f920066b08ba1"
+            ],
+            "video": "https://youtu.be/xIo0RxLYkQU"
+        },
+        {
+            "id": 1286,
+            "name": "Arakko",
+            "full_name": "Hellfire Gala: Arakko: Sister Island of Krakoa",
+            "location": "Hellfire Gala",
+            "description": "Escort the \"Avatar of Krakoa\" payload through two checkpoints and to the Great Ring",
+            "game_mode": "Convoy",
+            "is_competitive": false,
+            "sub_map_id": 1248,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1286.png",
+                "/rivals/maps/medium/map_1286.png",
+                "/rivals/maps/large/map_1286.png",
+                "/premium/maps/xl/map_1286.png?expires=1763034204&signature=581316331d4fea5b0539c0818f8d3b0a591bafda5e6056d7802902f05231f6e0"
+            ],
+            "video": "https://youtu.be/_DCOXD7X7yA"
+        },
+        {
+            "id": 1287,
+            "name": "Hell's Heaven",
+            "full_name": "Hell's Heaven - Hydra Charteris Base",
+            "location": "Hydra Charteris Base",
+            "description": "Battered into dormancy for decades, Hydra has hidden its dark ambitions behind the chaos of the times... but as time falls apart, that chaos will usher in a new era for the evil organization... Beneath Charteris Base in Antarctica, Hydra has reawakened a gateway to its otherworldly deity, and the key is the crystal formed from chronal energy. As the ancient Hive approaches from beyond, Hydra seeks to channel its power into a new army of super-soldiers. As the ancient cult prepares to welcome all timelines to its alien chorus, are the heroes truly prepared to confront the many heads of Hydra?",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": 1184,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1287.png",
+                "/rivals/maps/medium/map_1287.png",
+                "/rivals/maps/large/map_1287.png",
+                "/premium/maps/xl/map_1287.png?expires=1763034204&signature=1c5cd3c78e3707b14ff6d36d9755bdf954fd73a52f140b68f77f03d3c5bfda66"
+            ],
+            "video": "https://youtu.be/vSQ3D9-dWbA"
+        },
+        {
+            "id": 1288,
+            "name": "Hell's Heaven",
+            "full_name": "Hell's Heaven - Hydra Charteris Base",
+            "location": "Hydra Charteris Base",
+            "description": "Battered into dormancy for decades, Hydra has hidden its dark ambitions behind the chaos of the times... but as time falls apart, that chaos will usher in a new era for the evil organization... Beneath Charteris Base in Antarctica, Hydra has reawakened a gateway to its otherworldly deity, and the key is the crystal formed from chronal energy. As the ancient Hive approaches from beyond, Hydra seeks to channel its power into a new army of super-soldiers. As the ancient cult prepares to welcome all timelines to its alien chorus, are the heroes truly prepared to confront the many heads of Hydra?",
+            "game_mode": "Domination",
+            "is_competitive": true,
+            "sub_map_id": 1184,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1288.png",
+                "/rivals/maps/medium/map_1288.png",
+                "/rivals/maps/large/map_1288.png",
+                "/premium/maps/xl/map_1288.png?expires=1763034204&signature=750bf4eb0d2679985be0324716722542377405f5d4d03a074b9ef423cd12b3ec"
+            ],
+            "video": "https://youtu.be/vSQ3D9-dWbA"
+        },
+        {
+            "id": 1289,
+            "name": "Dancing Stage",
+            "full_name": "Dancing Stage - Intergalactic Empire of Wakanda",
+            "location": "Intergalactic Empire of Wakanda",
+            "description": "",
+            "game_mode": "Clash of dancing lions",
+            "is_competitive": false,
+            "sub_map_id": 1274,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1289.png",
+                "/rivals/maps/medium/map_1289.png",
+                "/rivals/maps/large/map_1289.png",
+                "/premium/maps/xl/map_1289.png?expires=1763034204&signature=7643fb437fdc91f63c5c08da86630fc2f2b59e977a8c7fa968f16a1128d2dd76"
+            ],
+            "video": null
+        },
+        {
+            "id": 1290,
+            "name": "Symbiotic Surface",
+            "full_name": "Symbiotic Surface - Klyntar",
+            "location": "Klyntar",
+            "description": "Stirred awake by the Timestream Entanglement, Knull taps into Chronovium to spread his dark divinity across the gods and free himself from his prison planet: Klyntar. Sensing the looming threat, Venom rushes to consume the severed essence of the god before Knull fully revives! On a mission from Shuri, the Milano malfunctions and crash lands in the ruins of the Agents of the Cosmos. Now, the Guardians of the Galaxy clash with Venom over how to use this dark power. Will they decide to join forces against Knull or will true evil ultimately emerge victorious?",
+            "game_mode": "Convergence",
+            "is_competitive": true,
+            "sub_map_id": 1109,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1290.png",
+                "/rivals/maps/medium/map_1290.png",
+                "/rivals/maps/large/map_1290.png",
+                "/premium/maps/xl/map_1290.png?expires=1763034204&signature=b8e12e8d33acf02a44e8be1e7fb93fd41ae8e6fe1c1bcb35868723539b77fe68"
+            ],
+            "video": "https://youtu.be/zEaFAj8h0ow"
+        },
+        {
+            "id": 1291,
+            "name": "Midtown",
+            "full_name": "Midtown - Empire of Eternal Night",
+            "location": "Empire of Eternal Night",
+            "description": "Midtown has fallen into eternal night, overrun by Dracula and his bloodthirsty legions. Iconic landmarks like the Baxter Building and Grand Central Terminal have become battlegrounds in the fight for survival. Heroes must navigate the twisted streets and uncover the secrets lurking in the heart of the darkness.",
+            "game_mode": "Convoy",
+            "is_competitive": true,
+            "sub_map_id": 1112,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1291.png",
+                "/rivals/maps/medium/map_1291.png",
+                "/rivals/maps/large/map_1291.png",
+                "/premium/maps/xl/map_1291.png?expires=1763034204&signature=41d91c08b4275f4613a450ce2de22b5688230066211ef83d842b446cc148b387"
+            ],
+            "video": "https://youtu.be/DmtMVOcHr-8"
+        },
+        {
+            "id": 1292,
+            "name": "Central Park",
+            "full_name": "Central Park - Empire of Eternal Night",
+            "location": "Empire of Eternal Night",
+            "description": "When the Timestream Entanglement swept over New York City, Dracula seized the opportunity with Doctor Doom's gift, stopping the moon and declaring an eternal night with the power of Chronovium! Now, the heroes are ready to take the battle to his gothic headquarters within Central Park.. Traverse into complete darkness to discover the imprisoned powers on the path to Dracula's Castle.",
+            "game_mode": "Convergence",
+            "is_competitive": true,
+            "sub_map_id": 1111,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1292.png",
+                "/rivals/maps/medium/map_1292.png",
+                "/rivals/maps/large/map_1292.png",
+                "/premium/maps/xl/map_1292.png?expires=1763034204&signature=065cabb04a5352206d32ff4b8412aab4cae8380be3c1044671fc3b646efa4ab8"
+            ],
+            "video": "https://youtu.be/fs_pMBXSr9Y"
+        },
+        {
+            "id": 1294,
+            "name": "Celestial Codex",
+            "full_name": "Klyntar: Celestial Husk: Celestial Codex",
+            "location": "Klyntar",
+            "description": "N/A",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": null,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1294.png",
+                "/rivals/maps/medium/map_1294.png",
+                "/rivals/maps/large/map_1294.png",
+                "/premium/maps/xl/map_1294.png?expires=1763034204&signature=666f22de1fa8a190a112c1e5196bddfa4703e7c1500f40dd5d567c58cced8efd"
+            ],
+            "video": "https://youtu.be/CUvBdR0HUqw"
+        },
+        {
+            "id": 1295,
+            "name": "Celestial Vault",
+            "full_name": "Klyntar: Celestial Husk: Celestial Vault",
+            "location": "Klyntar",
+            "description": "N/A",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": null,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1295.png",
+                "/rivals/maps/medium/map_1295.png",
+                "/rivals/maps/large/map_1295.png",
+                "/premium/maps/xl/map_1295.png?expires=1763034204&signature=2ce93967c701dbfe79833d1a3a72879f68736fe50a227e4e966776e067552894"
+            ],
+            "video": "https://youtu.be/CUvBdR0HUqw"
+        },
+        {
+            "id": 1296,
+            "name": "Celestial Hand",
+            "full_name": "Klyntar: Celestial Husk: Celestial Hand",
+            "location": "Klyntar",
+            "description": "N/A",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": null,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1296.png",
+                "/rivals/maps/medium/map_1296.png",
+                "/rivals/maps/large/map_1296.png",
+                "/premium/maps/xl/map_1296.png?expires=1763034204&signature=89724cada5ac11ce9bb4fc279a79a941e0ecec0c1a90598bde5bddaf2a5b4239"
+            ],
+            "video": "https://youtu.be/CUvBdR0HUqw"
         },
         {
             "id": 1302,
@@ -683,18 +729,17 @@
             "location": "Intergalactic Empire of Wakanda",
             "description": "From a single Vibranium meteorite, Wakanda rose to greatness. Now, at the heart of the galaxy, they’ve uncovered the homeland of that very mound. But no matter how far it's technology advances, Wakanda's strength will always be its people. Wakanda Forever!",
             "game_mode": "Clone Rumble",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 1108,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/Kkt5tBHyzI8",
+            "is_competitive": false,
+            "sub_map_id": 1108,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1302.png",
                 "/rivals/maps/medium/map_1302.png",
-                "/rivals/maps/large/map_1302.png"
-            ]
+                "/rivals/maps/large/map_1302.png",
+                "/premium/maps/xl/map_1302.png?expires=1763034204&signature=f138984d4354ab498fc822fccad93f6422c813f6661719b1f64f43ffa6b3236e"
+            ],
+            "video": "https://youtu.be/Kkt5tBHyzI8"
         },
         {
             "id": 1304,
@@ -703,18 +748,35 @@
             "location": "Hellfire Gala",
             "description": "The 2099 Hellfire Gala is underway, and Emma Frost is dazzling in her finery, expertly mingling with the crowd. With guests being properly entertained and the Mutants’ guards down, the timing is perfect for Ultron to crash this invite-only event! It’s up to the Quiet Council to get these unruly invaders under control, and their guests safe.\n\nMove with grace and precision across the Gala to stop the imminent infection being spread by Ultron and his robots.\n\nCan you keep your cool and elegance in the face of disaster?",
             "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 0,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1304.png",
                 "/rivals/maps/medium/map_1304.png",
-                "/rivals/maps/large/map_1304.png"
-            ]
+                "/rivals/maps/large/map_1304.png",
+                "/premium/maps/xl/map_1304.png?expires=1763034204&signature=5ac928e472095ce6087524ed6e7df1fd9657d2bfac4565455a8b0a7dc9de7308"
+            ],
+            "video": null
+        },
+        {
+            "id": 1307,
+            "name": "THRONE OF KNULL",
+            "full_name": "Throne of Knull",
+            "location": "",
+            "description": "",
+            "game_mode": "RESOURCE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 1276,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1307.png",
+                "/rivals/maps/medium/map_1307.png",
+                "/rivals/maps/large/map_1307.png"
+            ],
+            "video": null
         },
         {
             "id": 1309,
@@ -723,18 +785,17 @@
             "location": "Hellfire Gala",
             "description": "The 2099 Hellfire Gala is underway, and Emma Frost is dazzling in her finery, expertly mingling with the crowd. With guests being properly entertained and the Mutants’ guards down, the timing is perfect for Ultron to crash this invite-only event! It’s up to the Quiet Council to get these unruly invaders under control, and their guests safe.\n\nMove with grace and precision across the Gala to stop the imminent infection being spread by Ultron and his robots.\n\nCan you keep your cool and elegance in the face of disaster?",
             "game_mode": "Domination",
-            "is_competitve": false,
-            "sub_map": {
-                "id": 0,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/xIo0RxLYkQU",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1309.png",
                 "/rivals/maps/medium/map_1309.png",
-                "/rivals/maps/large/map_1309.png"
-            ]
+                "/rivals/maps/large/map_1309.png",
+                "/premium/maps/xl/map_1309.png?expires=1763034204&signature=41966a1ef09af63358212285448107009e809c481fa88481a3758903582c968c"
+            ],
+            "video": "https://youtu.be/xIo0RxLYkQU"
         },
         {
             "id": 1310,
@@ -743,18 +804,761 @@
             "location": "Hellfire Gala",
             "description": "The 2099 Hellfire Gala is underway, and Emma Frost is dazzling in her finery, expertly mingling with the crowd. With guests being properly entertained and the Mutants’ guards down, the timing is perfect for Ultron to crash this invite-only event! It’s up to the Quiet Council to get these unruly invaders under control, and their guests safe.\n\nMove with grace and precision across the Gala to stop the imminent infection being spread by Ultron and his robots.\n\nCan you keep your cool and elegance in the face of disaster?",
             "game_mode": "Domination",
-            "is_competitve": true,
-            "sub_map": {
-                "id": 0,
-                "name": null,
-                "thumbnail": null
-            },
-            "video": "https://youtu.be/xIo0RxLYkQU",
+            "is_competitive": true,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
             "images": [
                 "/rivals/maps/map_1310.png",
                 "/rivals/maps/medium/map_1310.png",
-                "/rivals/maps/large/map_1310.png"
-            ]
+                "/rivals/maps/large/map_1310.png",
+                "/premium/maps/xl/map_1310.png?expires=1763034204&signature=e079165919a4e9616dc22cdb315d7fd57f4bc16d35cfa5ecd510592008b6d93f"
+            ],
+            "video": "https://youtu.be/xIo0RxLYkQU"
+        },
+        {
+            "id": 1311,
+            "name": "Arakko",
+            "full_name": "Hellfire Gala: Arakko: Sister Island of Krakoa",
+            "location": "Hellfire Gala",
+            "description": "Escort the \"Avatar of Krakoa\" payload through two checkpoints and to the Great Ring",
+            "game_mode": "Convoy",
+            "is_competitive": true,
+            "sub_map_id": 1248,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1311.png",
+                "/rivals/maps/medium/map_1311.png",
+                "/rivals/maps/large/map_1311.png",
+                "/premium/maps/xl/map_1311.png?expires=1763034204&signature=020b3b371069a99ffb607a402c4eac987c82819f12642323864dcef0942a3e83"
+            ],
+            "video": "https://youtu.be/_DCOXD7X7yA"
+        },
+        {
+            "id": 1312,
+            "name": "Ninomaru",
+            "full_name": "Tokyo 2099: Ninomaru",
+            "location": "Tokyo 2099",
+            "description": "In this mode, players can play as one of 2 randomly-selected Heroes. Any Heroes can be selected, unlike in Clone Rumble where some Heroes were excluded.\n\nPlayers try to score as many eliminations as possible, while also trying not to die to deny their opponents additional points. Teams don't get points for kills, but instead enemies drop Chronovium after death that give points to the opposing team. This Chronovium become more valuable over time. A team can win by either scoring 50 points, or by scoring more points than the opposing team before time runs out.\n\nThe Heroes' larger heads have little impact on gameplay other than making opponents easier to spot and hit.",
+            "game_mode": "GIANT-SIZE BRAIN BLAST",
+            "is_competitive": false,
+            "sub_map_id": null,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1312.png",
+                "/rivals/maps/medium/map_1312.png",
+                "/rivals/maps/large/map_1312.png",
+                "/premium/maps/xl/map_1312.png?expires=1763034204&signature=150bc8303c0de1fab9bf0428082ba4036e85ec15c7cd29d331942bb5dae008ac"
+            ],
+            "video": "https://youtu.be/R3vHNENmAEQ"
+        },
+        {
+            "id": 1313,
+            "name": "Ninomaru",
+            "full_name": "Tokyo 2099: Ninomaru",
+            "location": "Tokyo 2099",
+            "description": "In this mode, players can play as one of 2 randomly-selected Heroes. Any Heroes can be selected, unlike in Clone Rumble where some Heroes were excluded.\n\nPlayers try to score as many eliminations as possible, while also trying not to die to deny their opponents additional points. Teams don't get points for kills, but instead enemies drop Chronovium after death that give points to the opposing team. This Chronovium become more valuable over time. A team can win by either scoring 50 points, or by scoring more points than the opposing team before time runs out.\n\nThe Heroes' larger heads have little impact on gameplay other than making opponents easier to spot and hit.",
+            "game_mode": "Arcade",
+            "is_competitive": false,
+            "sub_map_id": null,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1313.png",
+                "/rivals/maps/medium/map_1313.png",
+                "/rivals/maps/large/map_1313.png",
+                "/premium/maps/xl/map_1313.png?expires=1763034204&signature=f0602696ccd6133abd5198b56bfd3fabb2270a3e489cfae5297668926c8e88ed"
+            ],
+            "video": "https://youtu.be/R3vHNENmAEQ"
+        },
+        {
+            "id": 1314,
+            "name": "Digital Duel Grounds",
+            "full_name": "Karkoa: Digital Duel Grounds",
+            "location": "Karkoa",
+            "description": "Ultron's Battle Matrix Protocol is a tactical, strategy-based, team-builder gamemode. Players will play as an Ultron Drone and select their team of 6 Heroes which will be controlled by AIs. Players can unlock Cards which will enhance specific Hero's or a full Class' abilities. Players then place their Heroes on the battlefield to prepare for combat.\n\nThe matches are 1v1, with 2 players pitting their teams against one another. The players can use the Ultron Drone's abilities during a match.",
+            "game_mode": "ULTRON'S BATTLE MATRIX PROTOCOL",
+            "is_competitive": false,
+            "sub_map_id": 1303,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1314.png",
+                "/rivals/maps/medium/map_1314.png",
+                "/rivals/maps/large/map_1314.png",
+                "/premium/maps/xl/map_1314.png?expires=1763034204&signature=8a9366e580071f9530bdaf11eb39fe4dc818036f1813a1601d29162bbc0b91db"
+            ],
+            "video": "https://www.youtube.com/watch?v=gVIUnElubKk"
+        },
+        {
+            "id": 1317,
+            "name": "Celestial Husk",
+            "full_name": "Klyntar: Celestial Husk",
+            "location": "Klyntar",
+            "description": "N/A",
+            "game_mode": "Domination",
+            "is_competitive": false,
+            "sub_map_id": null,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1317.png",
+                "/rivals/maps/medium/map_1317.png",
+                "/rivals/maps/large/map_1317.png",
+                "/premium/maps/xl/map_1317.png?expires=1763034204&signature=82fc8a32aad11cfad225d10c6bddc95aa9bac5e2e1faf8cf319f03823c0caffa"
+            ],
+            "video": "https://youtu.be/CUvBdR0HUqw"
+        },
+        {
+            "id": 1318,
+            "name": "Celestial Husk",
+            "full_name": "Klyntar: Celestial Husk",
+            "location": "Klyntar",
+            "description": "N/A",
+            "game_mode": "Domination",
+            "is_competitive": true,
+            "sub_map_id": null,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1318.png",
+                "/rivals/maps/medium/map_1318.png",
+                "/rivals/maps/large/map_1318.png",
+                "/premium/maps/xl/map_1318.png?expires=1763034204&signature=8dfda0ed24da31d21a4a8bcb71f1a01eebe74ccfaca1779061f2ae3bb149295b"
+            ],
+            "video": "https://youtu.be/CUvBdR0HUqw"
+        },
+        {
+            "id": 1320,
+            "name": "THRONE OF KNULL",
+            "full_name": "Throne of Knull",
+            "location": "",
+            "description": "",
+            "game_mode": "RESOURCE RUMBLE",
+            "is_competitive": true,
+            "sub_map_id": 1276,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1320.png",
+                "/rivals/maps/medium/map_1320.png",
+                "/rivals/maps/large/map_1320.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1321,
+            "name": "ODIN'S ARCHIVE",
+            "full_name": "Odin's Archive",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1321.png",
+                "/rivals/maps/medium/map_1321.png",
+                "/rivals/maps/large/map_1321.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1322,
+            "name": "NINOMARU",
+            "full_name": "Ninomaru",
+            "location": "",
+            "description": "",
+            "game_mode": "CONQUEST (ANNIHILATION)",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1322.png",
+                "/rivals/maps/medium/map_1322.png",
+                "/rivals/maps/large/map_1322.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1371,
+            "name": "CAROUSEL",
+            "full_name": "Carousel",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1371.png",
+                "/rivals/maps/medium/map_1371.png",
+                "/rivals/maps/large/map_1371.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1373,
+            "name": "BIFROST GARDEN",
+            "full_name": "Bifrost Garden",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1373.png",
+                "/rivals/maps/medium/map_1373.png",
+                "/rivals/maps/large/map_1373.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1374,
+            "name": "THRONE ROOM",
+            "full_name": "Throne Room",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1374.png",
+                "/rivals/maps/medium/map_1374.png",
+                "/rivals/maps/large/map_1374.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1375,
+            "name": "THE GROVE",
+            "full_name": "The Grove",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1375.png",
+                "/rivals/maps/medium/map_1375.png",
+                "/rivals/maps/large/map_1375.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1376,
+            "name": "Stellar Spaceport",
+            "full_name": "Stellar Spaceport",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 1067,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1376.png",
+                "/rivals/maps/medium/map_1376.png",
+                "/rivals/maps/large/map_1376.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1377,
+            "name": "Imperial Institute of Science",
+            "full_name": "Imperial Institute of Science",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 1064,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1377.png",
+                "/rivals/maps/medium/map_1377.png",
+                "/rivals/maps/large/map_1377.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1378,
+            "name": "Celestial Codex",
+            "full_name": "Celestial Codex",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1378.png",
+                "/rivals/maps/medium/map_1378.png",
+                "/rivals/maps/large/map_1378.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1379,
+            "name": "Celestial Vault",
+            "full_name": "Celestial Vault",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1379.png",
+                "/rivals/maps/medium/map_1379.png",
+                "/rivals/maps/large/map_1379.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1380,
+            "name": "Celestial Hand",
+            "full_name": "Celestial Hand",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1380.png",
+                "/rivals/maps/medium/map_1380.png",
+                "/rivals/maps/large/map_1380.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1381,
+            "name": "Warrior Falls",
+            "full_name": "Warrior Falls",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 1065,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1381.png",
+                "/rivals/maps/medium/map_1381.png",
+                "/rivals/maps/large/map_1381.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1382,
+            "name": "CRADLE",
+            "full_name": "Cradle",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1382.png",
+                "/rivals/maps/medium/map_1382.png",
+                "/rivals/maps/large/map_1382.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1383,
+            "name": "Eldritch Monument",
+            "full_name": "Eldritch Monument",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 1184,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1383.png",
+                "/rivals/maps/medium/map_1383.png",
+                "/rivals/maps/large/map_1383.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1384,
+            "name": "Frozen Airfield",
+            "full_name": "Frozen Airfield",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 1184,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1384.png",
+                "/rivals/maps/medium/map_1384.png",
+                "/rivals/maps/large/map_1384.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1385,
+            "name": "Super-Soldier Factory",
+            "full_name": "Super-Soldier Factory",
+            "location": "",
+            "description": "",
+            "game_mode": "CLONE RUMBLE",
+            "is_competitive": false,
+            "sub_map_id": 1184,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1385.png",
+                "/rivals/maps/medium/map_1385.png",
+                "/rivals/maps/large/map_1385.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1388,
+            "name": "SHIN-SHIBUYA",
+            "full_name": "Shin-Shibuya",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1021,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1388.png",
+                "/rivals/maps/medium/map_1388.png",
+                "/rivals/maps/large/map_1388.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1389,
+            "name": "SPIDER-ISLANDS",
+            "full_name": "Spider-Islands",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1060,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1389.png",
+                "/rivals/maps/medium/map_1389.png",
+                "/rivals/maps/large/map_1389.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1391,
+            "name": "BIRNIN T'CHALLA",
+            "full_name": "Birnin T'Challa",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1108,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1391.png",
+                "/rivals/maps/medium/map_1391.png",
+                "/rivals/maps/large/map_1391.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1392,
+            "name": "HELL'S HEAVEN",
+            "full_name": "Hell's Heaven",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1184,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1392.png",
+                "/rivals/maps/medium/map_1392.png",
+                "/rivals/maps/large/map_1392.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1393,
+            "name": "SYMBIOTIC SURFACE",
+            "full_name": "Symbiotic Surface",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1109,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1393.png",
+                "/rivals/maps/medium/map_1393.png",
+                "/rivals/maps/large/map_1393.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1394,
+            "name": "MIDTOWN",
+            "full_name": "Midtown",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1112,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1394.png",
+                "/rivals/maps/medium/map_1394.png",
+                "/rivals/maps/large/map_1394.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1395,
+            "name": "CENTRAL PARK",
+            "full_name": "Central Park",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1111,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1395.png",
+                "/rivals/maps/medium/map_1395.png",
+                "/rivals/maps/large/map_1395.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1396,
+            "name": "KRAKOA",
+            "full_name": "Krakoa",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1396.png",
+                "/rivals/maps/medium/map_1396.png",
+                "/rivals/maps/large/map_1396.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1397,
+            "name": "ARAKKO",
+            "full_name": "Arakko",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1248,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1397.png",
+                "/rivals/maps/medium/map_1397.png",
+                "/rivals/maps/large/map_1397.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1398,
+            "name": "CELESTIAL HUSK",
+            "full_name": "Celestial Husk",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 0,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1398.png",
+                "/rivals/maps/medium/map_1398.png",
+                "/rivals/maps/large/map_1398.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1400,
+            "name": "YGGDRASILL PATH",
+            "full_name": "Yggdrasill Path",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1400.png",
+                "/rivals/maps/medium/map_1400.png",
+                "/rivals/maps/large/map_1400.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1401,
+            "name": "ROYAL PALACE",
+            "full_name": "Royal Palace",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1003,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1401.png",
+                "/rivals/maps/medium/map_1401.png",
+                "/rivals/maps/large/map_1401.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1402,
+            "name": "HALL OF DJALIA",
+            "full_name": "Hall of Djalia",
+            "location": "",
+            "description": "",
+            "game_mode": "FREE FIGHT",
+            "is_competitive": false,
+            "sub_map_id": 1035,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1402.png",
+                "/rivals/maps/medium/map_1402.png",
+                "/rivals/maps/large/map_1402.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1403,
+            "name": "MIDTOWN",
+            "full_name": "Midtown",
+            "location": "",
+            "description": "",
+            "game_mode": "MARVEL ZOMBIES",
+            "is_competitive": false,
+            "sub_map_id": 1403,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1403.png",
+                "/rivals/maps/medium/map_1403.png",
+                "/rivals/maps/large/map_1403.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1404,
+            "name": "HEART OF HEAVEN",
+            "full_name": "Heart of Heaven",
+            "location": "",
+            "description": "",
+            "game_mode": "CONVERGENCE",
+            "is_competitive": false,
+            "sub_map_id": 1315,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1404.png",
+                "/rivals/maps/medium/map_1404.png",
+                "/rivals/maps/large/map_1404.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 1405,
+            "name": "MIDTOWN",
+            "full_name": "Midtown",
+            "location": "",
+            "description": "",
+            "game_mode": "MARVEL ZOMBIES",
+            "is_competitive": false,
+            "sub_map_id": 1405,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_1405.png",
+                "/rivals/maps/medium/map_1405.png",
+                "/rivals/maps/large/map_1405.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 2041,
+            "name": "HEART OF HEAVEN",
+            "full_name": "Heart of Heaven",
+            "location": "",
+            "description": "",
+            "game_mode": "CONVERGENCE",
+            "is_competitive": false,
+            "sub_map_id": 1315,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_2041.png",
+                "/rivals/maps/medium/map_2041.png",
+                "/rivals/maps/large/map_2041.png"
+            ],
+            "video": null
+        },
+        {
+            "id": 2042,
+            "name": "HEART OF HEAVEN",
+            "full_name": "Heart of Heaven",
+            "location": "",
+            "description": "",
+            "game_mode": "CONVERGENCE",
+            "is_competitive": true,
+            "sub_map_id": 1315,
+            "sub_map_name": null,
+            "sub_map_thumbnail": null,
+            "images": [
+                "/rivals/maps/map_2042.png",
+                "/rivals/maps/medium/map_2042.png",
+                "/rivals/maps/large/map_2042.png"
+            ],
+            "video": null
         }
     ]
 }

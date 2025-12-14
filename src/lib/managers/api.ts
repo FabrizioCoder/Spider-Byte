@@ -5,7 +5,9 @@ import { Bucket } from 'seyfert/lib/api/bucket';
 import type { LeaderboardPlayerHeroDTO } from '../../types/dtos/LeaderboardPlayerHeroDTO';
 import type { MatchHistoryDTO, MatchHistory } from '../../types/dtos/MatchHistoryDTO';
 import type { FormattedPatch, PatchNotesDTO } from '../../types/dtos/PatchNotesDTO';
+import type { AutocompleteDTO } from '../../types/dtos/AutocompleteDTO';
 import type { FoundPlayerDTO } from '../../types/dtos/FoundPlayerDTO';
+import type { GameModes } from '../../utils/images/match-history';
 import type { HeroesDTO } from '../../types/dtos/HeroesDTO';
 import type { PlayerDTO } from '../../types/dtos/PlayerDTO';
 import type { UpdateDTO } from '../../types/dtos/UpdateDTO';
@@ -13,7 +15,7 @@ import type { HeroDTO } from '../../types/dtos/HeroDTO';
 import type { MapsDTO } from '../../types/dtos/MapsDTO';
 import type { MapDTO } from '../../types/dtos/MapsDTO';
 
-import { MARVELRIVALS_DOMAIN } from '../../utils/env';
+import { MARVELRIVALS_DOMAIN, TRACKER_DOMAIN } from '../../utils/env';
 import { Seasons } from '../../utils/constants';
 import { isProduction } from '../constants';
 
@@ -27,6 +29,7 @@ const validateFormattedPatch = createValidate<FormattedPatch>();
 const validatePlayer = createValidate<PlayerDTO>();
 const validateUpdatedPlayer = createValidate<UpdateDTO>();
 const validateMaps = createValidate<MapsDTO>();
+const validateAutocompletePlayerNames = createValidate<AutocompleteDTO>();
 
 export class Api {
   ratelimits = new Map<string, Bucket>();
@@ -37,6 +40,10 @@ export class Api {
       ? LogLevels.Info
       : LogLevels.Debug
   });
+
+  private readonly baseTrackerApiUrl: string = TRACKER_DOMAIN;
+
+  private readonly trackerApiUrlV2: string = `${this.baseTrackerApiUrl}/api/v2`;
 
   private readonly baseMarvelRivalsUrl: string = MARVELRIVALS_DOMAIN;
 
@@ -181,7 +188,7 @@ export class Api {
     page?: number;
     limit?: number;
     skip?: number;
-    game_mode?: 0 | 1 | 2 | 3 | 9 | 7;
+    game_mode?: typeof GameModes[number]['value'];
     timestamp?: number;
   } = {}) {
     options = MergeOptions({
@@ -300,15 +307,18 @@ export class Api {
     validator,
     query,
     expireTime,
-    route
+    route,
+    retries = 3,
+    tries = 0
   }: {
     endpoint: string;
-    domain: Api['marvelRivalsApiUrlV1' | 'marvelRivalsApiUrlV2'];
+    domain: Api['marvelRivalsApiUrlV1' | 'marvelRivalsApiUrlV2' | 'trackerApiUrlV2'];
     route: string;
     validator: (data: unknown) => IValidation<T>;
     cacheKey?: string;
     query?: Record<string, undefined | string | number>;
     retries?: number;
+    tries?: number;
     expireTime?: number;
   }): Promise<null | T> {
     if (cacheKey) {
@@ -350,6 +360,20 @@ export class Api {
     }
 
     if (!response.ok) {
+      if (tries < retries) {
+        this.logger.warn(`Retrying ${endpoint}... (${tries + 1}/${retries})`);
+        return this.fetchWithRetry({
+          domain,
+          cacheKey,
+          endpoint,
+          validator,
+          query,
+          expireTime,
+          route,
+          retries,
+          tries: tries + 1
+        });
+      }
       const text = await response.text();
       this.logger.error(text);
       let err: undefined | string;
@@ -463,5 +487,22 @@ export class Api {
     });
 
     return promise;
+  }
+
+  // tracker
+  autocompletePlayerNames(query: string) {
+    return this.fetchWithRetry({
+      domain: this.trackerApiUrlV2,
+      endpoint: 'marvel-rivals/standard/search',
+      validator: validateAutocompletePlayerNames,
+      route: 'marvel-rivals/standard/search',
+      query: {
+        platform: 'ign',
+        query,
+        autocomplete: 'true'
+      },
+      cacheKey: `autocomplete/${query}`,
+      expireTime: 12 * 60 * 60
+    });
   }
 }

@@ -14,25 +14,31 @@ import { drawCircularImage } from './utils';
 import { STICKY_CDN_DOMAIN } from '../env';
 import { Seasons } from '../constants';
 
-const gameModes = [{
+export const GameModes = [{
     name: 'All',
     value: 0
-}, {
+} as const, {
     name: 'Quick Play',
     value: 1
-}, {
+} as const, {
     name: 'Competitive',
     value: 2
-}, {
+} as const, {
     name: 'Custom',
     value: 3
-}, {
-    name: 'Tournament',
-    value: 9
-}, {
+} as const, {
+    name: 'Arcade',
+    value: 4
+} as const, {
     name: 'Vs AI',
     value: 7
-}] as const;
+} as const, {
+    name: 'Tournament',
+    value: 9
+} as const, {
+    name: 'Unknown',
+    value: -1
+} as const];
 
 function getSeasonName(season?: number): typeof Seasons[number]['name'] {
     if (season === undefined) {
@@ -42,11 +48,11 @@ function getSeasonName(season?: number): typeof Seasons[number]['name'] {
     return seasonData.name;
 }
 
-function getGameModeName(gameMode?: number): typeof gameModes[number]['name'] {
+function getGameModeName(gameMode?: number): typeof GameModes[number]['name'] {
     if (gameMode === undefined) {
-        return gameModes[gameModes.length - 1].name;
+        return GameModes[GameModes.length - 1].name;
     }
-    const gameModeData = gameModes.find((g) => g.value === gameMode) ?? gameModes[gameModes.length - 1];
+    const gameModeData = GameModes.find((g) => g.value === gameMode) ?? GameModes[GameModes.length - 1];
     return gameModeData.name;
 }
 

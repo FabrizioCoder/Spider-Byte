@@ -2,6 +2,7 @@ import type { CommandContext } from 'seyfert';
 
 import { createStringOption, SubCommand, LocalesT, Declare, Options } from 'seyfert';
 
+import { autocompleteUserCallback } from '../../utils/callbacks';
 import { generateCompare } from '../../utils/images/compare';
 
 const options = {
@@ -10,14 +11,16 @@ const options = {
         locales: {
             name: 'commands.player.compare.options.first.name',
             description: 'commands.player.compare.options.first.description'
-        }
+        },
+        autocomplete: autocompleteUserCallback
     }),
     'name-or-id2': createStringOption({
         description: 'second player name or id to compare',
         locales: {
             name: 'commands.player.compare.options.second.name',
             description: 'commands.player.compare.options.second.description'
-        }
+        },
+        autocomplete: autocompleteUserCallback
     })
 };
 
