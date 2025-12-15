@@ -112,10 +112,11 @@ export default class MapCommand extends SubCommand {
         if (map.video) {
             mapEmbed.setURL(map.video);
         }
-        if (map.sub_map.id) {
+
+        if (map.sub_map_id !== null) {
             mapEmbed.addFields({
                 name: Formatter.underline('Sub Map'),
-                value: `* ${map.sub_map.id} - ${map.sub_map.name ?? 'N/A'}`,
+                value: `* ${map.sub_map_id} - ${map.sub_map_name ?? 'N/A'}`,
                 inline: true
             });
         }
