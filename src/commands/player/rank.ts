@@ -96,9 +96,12 @@ export default class RankCommand extends SubCommand {
             });
         }
 
+        const start = performance.now();
         const bufferGraph = await generateRankChart(player, scoreInfo, ctx.options.season);
+        const end = performance.now();
 
         return ctx.editOrReply({
+            content: `-# ${ctx.t.common.imageCreatedIn(end - start).get()}`,
             files: [
                 new AttachmentBuilder()
                     .setName('rank.png')
