@@ -1,0 +1,13 @@
+diff --git a/load-image.js b/load-image.js
+index 935e8023da2db8b71c95fdfceb82fb20702bce77..b4799e4170a325c892d7b36ca02b417c3c6eae90 100644
+--- a/load-image.js
++++ b/load-image.js
+@@ -95,7 +95,7 @@ function makeRequest(url, resolve, reject, redirectCount, requestOptions) {
+             requestOptions,
+           )
+         if (typeof res.statusCode === 'number' && (res.statusCode < 200 || res.statusCode >= 300)) {
+-          return reject(new Error(`remote source rejected with status code ${res.statusCode}`))
++          return reject(new Error(`remote source rejected with status code ${res.statusCode} for url: ${url.toString()}`))
+         }
+ 
+         consumeStream(res).then(resolve, reject)

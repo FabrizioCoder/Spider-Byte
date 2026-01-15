@@ -4,18 +4,18 @@
   "type": "module",
   "devDependencies": {
     "@marcrock22/eslint": "github:marcrock22/eslintcf",
-    "@types/bun": "^1.3.4",
-    "eslint": "^9.39.1",
+    "@types/bun": "^1.3.5",
+    "eslint": "^9.39.2",
     "rimraf": "^6.1.2",
     "ts-patch": "^3.3.0",
-    "typescript-eslint": "^8.49.0",
-    "typia": "^10.1.0"
+    "typescript-eslint": "^8.50.1",
+    "typia": "^11.0.0"
   },
   "peerDependencies": {
     "typescript": "~5.9.3"
   },
   "dependencies": {
-    "@napi-rs/canvas": "^0.1.84",
+    "@napi-rs/canvas": "^0.1.87",
     "@prisma/client": "6.19",
     "@redis/client": "^5.10.0",
     "@resvg/resvg-js": "^2.6.2",
@@ -33,5 +33,8 @@
     "prepare": "ts-patch install",
     "build": "bunx rimraf dist && typia generate --input src --output dist --project tsconfig.json",
     "production": "bun install --frozen-lockfile && bunx prisma generate && bun run build && bun --env-file=.env ./dist/index.ts production"
+  },
+  "patchedDependencies": {
+    "@napi-rs/canvas@0.1.87": "patches/@napi-rs%2Fcanvas@0.1.87.patch"
   }
 }

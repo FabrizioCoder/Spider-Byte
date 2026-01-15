@@ -196,7 +196,12 @@ export async function generateRankChart(user: PlayerDTO, scoreInfo: ExpectedScor
         ctx.stroke();
 
         // Gradient fill
-        const gradient = ctx.createLinearGradient(0, yScale(Math.max(scoreInfo[i - 1].new_score, point.new_score)), 0, MARGIN.top + chartHeight);
+        const gradient = ctx.createLinearGradient(
+            0,
+            yScale(Math.max(scoreInfo[i - 1].new_score, point.new_score)),
+            0,
+            MARGIN.top + chartHeight
+        );
         gradient.addColorStop(0, `${color}CC`);
         gradient.addColorStop(1, `${color}00`);
 
