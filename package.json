@@ -9,7 +9,7 @@
     "rimraf": "^6.1.2",
     "ts-patch": "^3.3.0",
     "typescript-eslint": "^8.50.1",
-    "typia": "^11.0.0"
+    "typia": "^10.1.0"
   },
   "peerDependencies": {
     "typescript": "~5.9.3"
