@@ -31,4 +31,7 @@ export const Seasons = [{
 }, {
     name: 'S5.5: Love is a Battlefield',
     value: 5.5
+} as const, {
+    name: 'S6: Night at the Museum',
+    value: 6
 } as const];
