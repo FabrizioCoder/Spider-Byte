@@ -80,9 +80,9 @@ const client = new Client({
             (error instanceof Error
               ? error.message
               : typeof error === 'object' &&
-                  error &&
-                  'message' in error &&
-                  typeof error.message === 'string'
+                error &&
+                'message' in error &&
+                typeof error.message === 'string'
                 ? error.message
                 : typeof error === 'string'
                   ? error
@@ -202,11 +202,11 @@ client.setServices({
 client.langs.filter = (path) => basename(path) === '_.ts';
 
 client.langs.onFile = (locale, { path, file }) => file.default
-    ? {
-        file: file.default,
-        locale: path.split(sep).at(-2) ?? locale
-      }
-    : false;
+  ? {
+    file: file.default,
+    locale: path.split(sep).at(-2) ?? locale
+  }
+  : false;
 
 client.redis = createClient();
 await client.redis
@@ -236,7 +236,7 @@ await client.uploadCommands({
 declare module 'seyfert' {
   interface RegisteredMiddlewares extends ParseMiddlewares<
     typeof middlewares
-  > {}
+  > { }
 
   interface UsingClient extends ParseClient<Client<true>> {
     api: Api;
@@ -247,7 +247,7 @@ declare module 'seyfert' {
 
   interface DefaultLocale extends ParseLocales<
     (typeof import('./locales/en-US/_'))['default']
-  > {}
+  > { }
 
   interface ExtraProps {
     ratelimit?: Ratelimit;

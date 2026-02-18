@@ -14,7 +14,7 @@ export interface Data {
 export interface DataMetadata {
   lastUpdated: LastUpdated;
   isPC: boolean;
-  clubMiniName: null;
+  clubMiniName: string | null;
   isPrivateCareerOverview: boolean;
   isPrivateCareerStatistics: boolean;
   isPrivateBattleHistory: boolean;
@@ -192,7 +192,7 @@ export enum AssistsDisplayType {
   TimeSeconds = 'TimeSeconds'
 }
 
-export interface AssistsMetadata {}
+export interface AssistsMetadata { }
 
 export interface LifetimePeakRanked {
   displayName: DisplayName;
