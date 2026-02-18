@@ -14,7 +14,7 @@ export interface Data {
 export interface DataMetadata {
   lastUpdated: LastUpdated;
   isPC: boolean;
-  clubMiniName: null;
+  clubMiniName: string | null;
   isPrivateCareerOverview: boolean;
   isPrivateCareerStatistics: boolean;
   isPrivateBattleHistory: boolean;
