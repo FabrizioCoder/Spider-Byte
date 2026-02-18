@@ -23,54 +23,50 @@ const AllSeasons = [
   } as const,
   {
     name: 'Season 6.5',
-    value: '14'
-  } as const,
-  {
-    name: 'Season 6',
     value: '13'
   } as const,
   {
-    name: 'Season 5.5',
+    name: 'Season 6',
     value: '12'
   } as const,
   {
-    name: 'Season 5',
+    name: 'Season 5.5',
     value: '11'
   } as const,
   {
-    name: 'Season 4.5',
+    name: 'Season 5',
     value: '10'
   } as const,
   {
-    name: 'Season 4',
+    name: 'Season 4.5',
     value: '9'
   } as const,
   {
-    name: 'Season 3.5',
+    name: 'Season 4',
     value: '8'
   } as const,
   {
-    name: 'Season 3',
+    name: 'Season 3.5',
     value: '7'
   } as const,
   {
-    name: 'Season 2.5',
+    name: 'Season 3',
     value: '6'
   } as const,
   {
-    name: 'Season 2',
+    name: 'Season 2.5',
     value: '5'
   } as const,
   {
-    name: 'Season 1.5',
+    name: 'Season 2',
     value: '4'
   } as const,
   {
-    name: 'Season 1',
+    name: 'Season 1.5',
     value: '3'
   } as const,
   {
-    name: 'Season 0.5',
+    name: 'Season 1',
     value: '2'
   } as const,
   {
