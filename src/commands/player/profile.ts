@@ -1,7 +1,79 @@
-import { type CommandContext, createStringOption, AttachmentBuilder, SubCommand, LocalesT, Declare, Options } from 'seyfert';
+import {
+  type CommandContext,
+  createStringOption,
+  AttachmentBuilder,
+  SubCommand,
+  LocalesT,
+  Declare,
+  Options
+} from 'seyfert';
 
-import { generateProfileV1, generateProfileV2 } from '../../utils/images/profile';
+import {
+  generateProfileV1,
+  generateProfileV2
+} from '../../utils/images/profile';
+import { trackerModesMap } from '../../lib/api/trackergg/tracker-api';
 import { autocompleteUserCallback } from '../../utils/callbacks';
+import { callbackPaginator } from '../../utils/paginator';
+
+const AllSeasons = [
+  {
+    name: 'All Seasons',
+    value: 'all'
+  } as const,
+  {
+    name: 'Season 6.5',
+    value: '13'
+  } as const,
+  {
+    name: 'Season 6',
+    value: '12'
+  } as const,
+  {
+    name: 'Season 5.5',
+    value: '11'
+  } as const,
+  {
+    name: 'Season 5',
+    value: '10'
+  } as const,
+  {
+    name: 'Season 4.5',
+    value: '9'
+  } as const,
+  {
+    name: 'Season 4',
+    value: '8'
+  } as const,
+  {
+    name: 'Season 3.5',
+    value: '7'
+  } as const,
+  {
+    name: 'Season 3',
+    value: '6'
+  } as const,
+  {
+    name: 'Season 2.5',
+    value: '5'
+  } as const,
+  {
+    name: 'Season 2',
+    value: '4'
+  } as const,
+  {
+    name: 'Season 1.5',
+    value: '3'
+  } as const,
+  {
+    name: 'Season 1',
+    value: '2'
+  } as const,
+  {
+    name: 'Season 0',
+    value: '1'
+  } as const
+];
 
 const options = {
   'name-or-id': createStringOption({
@@ -34,6 +106,11 @@ const options = {
       description: 'commands.commonOptions.gameMode.description'
     }
   }),
+  season: createStringOption({
+    description: 'Choose the season to display stats for.',
+    required: false,
+    choices: AllSeasons
+  }),
   'image-version': createStringOption({
     description: 'Choose the image version to display stats for.',
     choices: [
@@ -55,7 +132,8 @@ const options = {
 
 @Declare({
   name: 'profile',
-  description: 'Get detailed stats like roles, rank, and top heroes for a player.'
+  description:
+    'Get detailed stats like roles, rank, and top heroes for a player.'
 })
 @LocalesT('commands.player.profile.name', 'commands.player.profile.description')
 @Options(options)
@@ -63,32 +141,62 @@ export default class ProfileCommand extends SubCommand {
   async run(ctx: CommandContext<typeof options>) {
     await ctx.deferReply();
 
-    const nameOrId = ctx.options['name-or-id'] || (await ctx.client.prisma.user.findFirst({
-      where: {
-        userID: ctx.author.id
-      }
-    }))?.rivalsUUID;
+    const nameOrId =
+      ctx.options['name-or-id'] ||
+      (
+        await ctx.client.prisma.user.findFirst({
+          where: {
+            userID: ctx.author.id
+          }
+        })
+      )?.rivalsUUID;
     if (!nameOrId) {
       return ctx.editOrReply({
         content: ctx.t.commands.commonErrors.noNameOrId.get()
       });
     }
 
-    const player = await ctx.client.api.getPlayer(nameOrId);
 
-    if (!player) {
-      return ctx.editOrReply({
-        content: ctx.t.commands.commonErrors.playerNotFound.get()
-      });
-    }
+    const mode = ctx.options['game-mode'] ?? 'competitive';
 
-    const buffer = await (ctx.options['image-version'] === 'v1'
-      ? generateProfileV1
-      : generateProfileV2)(player, await ctx.client.api.getHeroes(), ctx.options['game-mode']);
-    await ctx.editOrReply({
-      files: [
-        new AttachmentBuilder().setName('profile.png').setFile('buffer', buffer)
-      ]
+    await callbackPaginator(ctx, AllSeasons, {
+      async callback(data) {
+        const page = data[0];
+        const parsedSeason = page.value === 'all'
+          ? 'all'
+          : parseInt(page.value);
+        const [player, heroes] = await Promise.all([
+          ctx.client.api.getPlayerCareerData(
+            nameOrId,
+            trackerModesMap[mode],
+            parsedSeason
+          ),
+          ctx.client.api.getTrackerHeroesMetadata()
+        ]);
+
+        if (!player || !heroes) {
+          return {
+            content: ctx.t.commands.commonErrors.playerNotFound.get()
+          };
+        }
+
+        const buffer = await (
+          ctx.options['image-version'] === 'v1'
+            ? generateProfileV1
+            : generateProfileV2
+        )(player, heroes, ctx.options['game-mode']);
+
+        return {
+          content: page.name,
+          files: [
+            new AttachmentBuilder()
+              .setName('profile.png')
+              .setFile('buffer', buffer)
+          ]
+        };
+      },
+      pageSize: 1
     });
+
   }
 }

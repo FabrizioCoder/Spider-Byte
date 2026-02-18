@@ -7,7 +7,8 @@ export const commands = {
         noNameOrId: ':warning: No player name or ID provided. This is required to proceed.',
         noName: ':warning: No player name provided. This is required to proceed.',
         underDevelopment: ':warning: This command is under development. It will be available soon. Sorry for the inconvenience.',
-        privateProfile: ':warning: This profile is set to private in game. To change this, follow the directions shown and try again.'
+        privateProfile: ':warning: This profile is set to private in game. To change this, follow the directions shown and try again.',
+        invalidSeason: ':warning: Invalid season. Please provide a valid season number or "all".'
     },
     commonOptions: {
         nameOrId: {

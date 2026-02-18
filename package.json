@@ -32,6 +32,8 @@
     "start": "bun run build && bun --env-file=.env ./dist/index.ts",
     "prepare": "ts-patch install",
     "build": "bunx rimraf dist && typia generate --input src --output dist --project tsconfig.json",
-    "production": "bun run build && bun --env-file=.env ./dist/index.ts production"
+    "production": "bun run build && bun --env-file=.env ./dist/index.ts production",
+    "dev": "bun run build && bun --watch --env-file=.env ./dist/index.ts",
+    "debug": "bun run build && bun --inspect --watch --env-file=.env ./dist/index.ts"
   }
 }
