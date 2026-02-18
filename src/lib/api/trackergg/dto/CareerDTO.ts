@@ -117,7 +117,7 @@ export interface Assists {
   category: Category;
   metadata: AssistsMetadata;
   value: number | null;
-  displayValue?: string;
+  displayValue?: string | null;
   displayType: AssistsDisplayType;
   percentile?: number;
 }
