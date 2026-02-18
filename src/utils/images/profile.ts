@@ -197,31 +197,33 @@ export async function generateProfileV2(data: PlayerDTO, allHeroes: HeroesDTO[],
 
     ctx.font = '900 23px RefrigeratorDeluxeBold';
     {
-        ctx.fillStyle = '#cd773c';
-        const damageNumberText = (damage / play_time * 60 || 0).toFixed(0);
-        const damageNumberMetrics = ctx.measureText(damageNumberText);
-        ctx.fillText(damageNumberText, 130 - damageNumberMetrics.width / 2, 647);
+      ctx.fillStyle = '#cd773c';
+      const damageNumberText = (damage / play_time * 60 || 0).toFixed(0);
+      const damageNumberMetrics = ctx.measureText(damageNumberText);
+      ctx.fillText(damageNumberText, 110, 647);
 
-        ctx.fillStyle = 'white';
-        ctx.fillText('damage dealt', damageNumberMetrics.width + 120, 647);
+      ctx.fillStyle = 'white';
+      ctx.fillText('damage dealt', damageNumberMetrics.width + 120, 647);
     }
     {
-        ctx.fillStyle = '#80b1b4';
-        const damageTakenNumberText = (damage_taken / play_time * 60 || 0).toFixed(0);
-        const damageTakenNumberMetrics = ctx.measureText(damageTakenNumberText);
-        ctx.fillText(damageTakenNumberText, 130 - damageTakenNumberMetrics.width / 2, 683);
+      ctx.fillStyle = '#80b1b4';
+      const damageTakenNumberText = (
+        damage_taken / play_time * 60 || 0
+      ).toFixed(0);
+      const damageTakenNumberMetrics = ctx.measureText(damageTakenNumberText);
+      ctx.fillText(damageTakenNumberText, 110, 683);
 
-        ctx.fillStyle = 'white';
-        ctx.fillText('damage taken', damageTakenNumberMetrics.width + 120, 683);
+      ctx.fillStyle = 'white';
+      ctx.fillText('damage taken', damageTakenNumberMetrics.width + 120, 683);
     }
     {
-        ctx.fillStyle = '#a4ba7a';
-        const healNumberText = (heal / play_time * 60 || 0).toFixed(0);
-        const healNumberMetrics = ctx.measureText(healNumberText);
-        ctx.fillText(healNumberText, 130 - healNumberMetrics.width / 2, 719);
+      ctx.fillStyle = '#a4ba7a';
+      const healNumberText = (heal / play_time * 60 || 0).toFixed(0);
+      const healNumberMetrics = ctx.measureText(healNumberText);
+      ctx.fillText(healNumberText, 110, 719);
 
-        ctx.fillStyle = 'white';
-        ctx.fillText('healing done', healNumberMetrics.width + 120, 719);
+      ctx.fillStyle = 'white';
+      ctx.fillText('healing done', healNumberMetrics.width + 120, 719);
     }
 
     ctx.font = '900 30px RefrigeratorDeluxeBold';

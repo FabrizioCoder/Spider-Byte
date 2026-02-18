@@ -9,7 +9,8 @@ const commands = {
         noNameOrId: ':warning: No se proporcionó nombre o ID. Este dato es necesario para continuar.',
         noName: ':warning: No se proporcionó nombre del jugador. Este dato es necesario para continuar.',
         underDevelopment: ':warning: Este comando está en desarrollo. Pronto estará disponible. Disculpa las molestias.',
-        privateProfile: ':warning: Este perfil está configurado como privado en el juego. Para cambiarlo, sigue las instrucciones que se muestran e intenta de nuevo.'
+        privateProfile: ':warning: Este perfil está configurado como privado en el juego. Para cambiarlo, sigue las instrucciones que se muestran e intenta de nuevo.',
+        invalidSeason: ':warning: Temporada inválida. Por favor proporciona un número de temporada válido o "all".'
     },
     commonOptions: {
         nameOrId: {
