@@ -192,7 +192,7 @@ export enum AssistsDisplayType {
   TimeSeconds = 'TimeSeconds'
 }
 
-export interface AssistsMetadata {}
+export interface AssistsMetadata { }
 
 export interface LifetimePeakRanked {
   displayName: DisplayName;

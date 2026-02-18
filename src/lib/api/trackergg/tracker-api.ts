@@ -6,15 +6,13 @@ import type { Profile } from './dto/ProfileDTO';
 
 import { AttackType, Role } from '../../../types/dtos/HeroesDTO';
 
-export type TrackerGameModes = 'competitive' | 'quick-match' | 'all'; // todo: ver si vale la pena agregar modos arcade y todo eso
-export const trackerModesMap: Record<
-  'ranked' | 'casual' | 'both',
-  TrackerGameModes
-> = {
+export type TrackerGameModes = 'competitive' | 'quick-match' | 'all';
+export const trackerModesMap = {
   ranked: 'competitive',
+  competitive: 'competitive',
   casual: 'quick-match',
   both: 'all'
-};
+} satisfies Partial<Record<string, TrackerGameModes>>;
 
 /**
  * Transforms Tracker.gg career API response data to PlayerDTO format.
@@ -36,37 +34,33 @@ export function transformCareerToPlayerDTO(
 
   const iconIdMatch = /\/(\d+)\.jpg/.exec(avatarUrl);
   const playerIconId = iconIdMatch
-? iconIdMatch[1]
-: '0';
+    ? iconIdMatch[1]
+    : '0';
 
   // Use career data for all stats and heroes (career endpoint has complete data)
   const overview = careerData.data.find((item) => item.type === 'overview');
   const heroSegments = careerData.data.filter((item) => item.type === 'hero');
 
-  if (!overview) {
-    throw new Error('Overview data not found in Career response');
-  }
-
   // Overall career stats
-  const stats = overview.stats;
-  const totalKills = Number(stats.kills?.value) || 0;
-  const totalDeaths = Number(stats.deaths?.value) || 0;
-  const totalAssists = Number(stats.assists?.value) || 0;
-  const totalWins = Number(stats.matchesWon?.value) || 0;
-  const totalMatches = Number(stats.matchesPlayed?.value) || 0;
-  const totalTimePlayedDispley = stats.timePlayed?.displayValue;
-  const totalTimePlayedValue = Number(stats.timePlayed?.value) || 0;
-  const totalMvp = Number(stats.totalMvp?.value) || 0;
-  const totalSvp = Number(stats.totalSvp?.value) || 0;
+  const stats = overview?.stats;
+  const totalKills = Number(stats?.kills?.value) || 0;
+  const totalDeaths = Number(stats?.deaths?.value) || 0;
+  const totalAssists = Number(stats?.assists?.value) || 0;
+  const totalWins = Number(stats?.matchesWon?.value) || 0;
+  const totalMatches = Number(stats?.matchesPlayed?.value) || 0;
+  const totalTimePlayedDispley = stats?.timePlayed?.displayValue;
+  const totalTimePlayedValue = Number(stats?.timePlayed?.value) || 0;
+  const totalMvp = Number(stats?.totalMvp?.value) || 0;
+  const totalSvp = Number(stats?.totalSvp?.value) || 0;
 
   // Rank information from career
-  const rankedStat = stats.ranked;
+  const rankedStat = stats?.ranked;
   const rankTier = rankedStat?.metadata.tierName || 'Unranked';
   const rankScore = Number(rankedStat?.value) || 0;
   const rankColor = rankedStat?.metadata.color ?? null;
   const rankIcon = rankedStat?.metadata.iconUrl ?? null;
 
-  const lifetimePeakStat = stats.lifetimePeakRanked;
+  const lifetimePeakStat = stats?.lifetimePeakRanked;
 
   // Map heroes from career data (uses CareerDTO Datum structure)
   const heroes: HeroesRanked[] = heroSegments.map((heroSegment) => transformHeroDataFromCareer(heroSegment));
@@ -101,8 +95,8 @@ export function transformCareerToPlayerDTO(
       info: {
         completed_achievements: '',
         login_os: metadata.isPC
-? 'pc'
-: 'console',
+          ? 'pc'
+          : 'console',
         rank_game_season: {
           1: {
             rank_game_id: 1,
@@ -110,8 +104,8 @@ export function transformCareerToPlayerDTO(
             rank_score: rankScore,
             max_level: lifetimePeakStat
               ? extractRankLevel(
-                  lifetimePeakStat.metadata?.tierName || rankTier
-                )
+                lifetimePeakStat.metadata.tierName || rankTier
+              )
               : extractRankLevel(rankTier),
             max_rank_score: Number(lifetimePeakStat?.value) || rankScore,
             update_time: new Date(metadata.lastUpdated.value).getTime(),
@@ -142,8 +136,8 @@ export function transformCareerToPlayerDTO(
         total_assists: Math.round(totalAssists),
         total_deaths: Math.round(totalDeaths),
         total_kills: Math.round(totalKills),
-        total_time_played: totalTimePlayedDispley, // nota: revisar "displayType" para saber q formato viene
-        total_time_played_raw: totalTimePlayedValue, //
+        total_time_played: totalTimePlayedDispley ?? undefined,
+        total_time_played_raw: totalTimePlayedValue,
         total_mvp: Math.round(totalMvp),
         total_svp: Math.round(totalSvp)
       }
