@@ -22,6 +22,10 @@ const AllSeasons = [
     value: 'all'
   } as const,
   {
+    name: 'Season 7',
+    value: '14'
+  },
+  {
     name: 'Season 6.5',
     value: '13'
   } as const,
