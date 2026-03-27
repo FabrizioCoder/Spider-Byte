@@ -2,12 +2,21 @@ import { MergeOptions, LogLevels, Logger } from 'seyfert/lib/common';
 import { type IValidation, createValidate } from 'typia';
 import { Bucket } from 'seyfert/lib/api/bucket';
 
+import type {
+  MatchHistoryDTO,
+  MatchHistory
+} from '../../types/dtos/MatchHistoryDTO';
+import type {
+  FormattedPatch,
+  PatchNotesDTO
+} from '../../types/dtos/PatchNotesDTO';
 import type { LeaderboardPlayerHeroDTO } from '../../types/dtos/LeaderboardPlayerHeroDTO';
-import type { MatchHistoryDTO, MatchHistory } from '../../types/dtos/MatchHistoryDTO';
-import type { FormattedPatch, PatchNotesDTO } from '../../types/dtos/PatchNotesDTO';
+import type { Welcome as TrackerHeroesMetadata } from '../api/trackergg/dto/HeroDTO';
 import type { AutocompleteDTO } from '../../types/dtos/AutocompleteDTO';
 import type { FoundPlayerDTO } from '../../types/dtos/FoundPlayerDTO';
 import type { GameModes } from '../../utils/images/match-history';
+import type { CareerDTO } from '../api/trackergg/dto/CareerDTO';
+import type { Profile } from '../api/trackergg/dto/ProfileDTO';
 import type { HeroesDTO } from '../../types/dtos/HeroesDTO';
 import type { PlayerDTO } from '../../types/dtos/PlayerDTO';
 import type { UpdateDTO } from '../../types/dtos/UpdateDTO';
@@ -15,6 +24,11 @@ import type { HeroDTO } from '../../types/dtos/HeroDTO';
 import type { MapsDTO } from '../../types/dtos/MapsDTO';
 import type { MapDTO } from '../../types/dtos/MapsDTO';
 
+import {
+  transformTrackerHeroesToHeroesDTO,
+  transformCareerToPlayerDTO,
+  type TrackerGameModes
+} from '../api/trackergg/tracker-api';
 import { MARVELRIVALS_DOMAIN, TRACKER_DOMAIN } from '../../utils/env';
 import { Seasons } from '../../utils/constants';
 import { isProduction } from '../constants';
@@ -23,13 +37,17 @@ const validateHeroes = createValidate<HeroesDTO[]>();
 const validateHero = createValidate<HeroDTO>();
 const validateFoundPlayer = createValidate<FoundPlayerDTO>();
 const validateMatchHistory = createValidate<MatchHistoryDTO>();
-const validateLeaderboardPlayerHero = createValidate<LeaderboardPlayerHeroDTO>();
+const validateLeaderboardPlayerHero =
+  createValidate<LeaderboardPlayerHeroDTO>();
 const validatePatchNotes = createValidate<PatchNotesDTO>();
 const validateFormattedPatch = createValidate<FormattedPatch>();
 const validatePlayer = createValidate<PlayerDTO>();
 const validateUpdatedPlayer = createValidate<UpdateDTO>();
 const validateMaps = createValidate<MapsDTO>();
 const validateAutocompletePlayerNames = createValidate<AutocompleteDTO>();
+const validatePlayerCareerData = createValidate<CareerDTO>();
+const validateProfile = createValidate<Profile>();
+const validateTrackerHeroesMetadata = createValidate<TrackerHeroesMetadata>();
 
 export class Api {
   ratelimits = new Map<string, Bucket>();
@@ -55,7 +73,12 @@ export class Api {
 
   private apiKeyIndex = 0;
 
-  constructor(private readonly apiKeys: string[], private readonly redisClient: ReturnType<typeof import('@redis/client')['createClient']>) { }
+  constructor(
+    private readonly apiKeys: string[],
+    private readonly redisClient: ReturnType<
+      (typeof import('@redis/client'))['createClient']
+    >
+  ) { }
 
   public buildImage(path: string) {
     return `${this.cdnUrl}${path}`;
@@ -70,7 +93,12 @@ export class Api {
   }
 
   // Utils
-  async getRankHistory(userId: string, season: typeof Seasons[number]['value'] = Seasons[Seasons.length - 1].value, limit = Infinity) {
+  async getRankHistory(
+    userId: string,
+    season: (typeof Seasons)[number]['value'] = Seasons[Seasons.length - 1]
+      .value,
+    limit = Infinity
+  ) {
     const history: MatchHistory[] = [];
     let data: MatchHistoryDTO | null;
     let page = 0;
@@ -93,7 +121,13 @@ export class Api {
       : history.slice(0, limit);
   }
 
-  async getAllHistory(userId: string, options?: Omit<NonNullable<Parameters<typeof this['getMatchHistory']>[1]>, 'limit'>) {
+  async getAllHistory(
+    userId: string,
+    options?: Omit<
+      NonNullable<Parameters<(typeof this)['getMatchHistory']>[1]>,
+      'limit'
+    >
+  ) {
     const history: MatchHistory[] = [];
     let data: MatchHistoryDTO | null;
     let page = options?.page
@@ -183,22 +217,28 @@ export class Api {
   }
 
   // Matches
-  public getMatchHistory(userNameOrId: string, options: {
-    season?: typeof Seasons[number]['value'];
-    page?: number;
-    limit?: number;
-    skip?: number;
-    game_mode?: typeof GameModes[number]['value'];
-    timestamp?: number;
-  } = {}) {
-    options = MergeOptions({
-      season: Seasons[Seasons.length - 1].value,
-      page: 1,
-      limit: 40,
-      skip: 0,
-      game_mode: 0,
-      timestamp: undefined
-    }, options);
+  public getMatchHistory(
+    userNameOrId: string,
+    options: {
+      season?: (typeof Seasons)[number]['value'];
+      page?: number;
+      limit?: number;
+      skip?: number;
+      game_mode?: (typeof GameModes)[number]['value'];
+      timestamp?: number;
+    } = {}
+  ) {
+    options = MergeOptions(
+      {
+        season: Seasons[Seasons.length - 1].value,
+        page: 1,
+        limit: 40,
+        skip: 0,
+        game_mode: 0,
+        timestamp: undefined
+      },
+      options
+    );
 
     return this.fetchWithRetry({
       domain: this.marvelRivalsApiUrlV2,
@@ -232,7 +272,10 @@ export class Api {
     });
   }
 
-  public async getPlayer(nameOrId: string, options?: Parameters<typeof this.fetchPlayer>[1]) {
+  public async getPlayer(
+    nameOrId: string,
+    options?: Parameters<typeof this.fetchPlayer>[1]
+  ) {
     if (/^\d+$/.exec(nameOrId)) {
       return this.fetchPlayer(nameOrId, options);
     }
@@ -244,12 +287,18 @@ export class Api {
     return this.fetchPlayer(playerFound.uid, options);
   }
 
-  fetchPlayer(id: string, options: {
-    season?: typeof Seasons[number]['value'];
-  } = {}) {
-    options = MergeOptions({
-      season: Seasons[Seasons.length - 1].value
-    }, options);
+  fetchPlayer(
+    id: string,
+    options: {
+      season?: (typeof Seasons)[number]['value'];
+    } = {}
+  ) {
+    options = MergeOptions(
+      {
+        season: Seasons[Seasons.length - 1].value
+      },
+      options
+    );
     return this.fetchWithRetry({
       domain: this.marvelRivalsApiUrlV1,
       endpoint: `player/${id}`,
@@ -262,7 +311,10 @@ export class Api {
   }
 
   // Heroes
-  public getLeaderboardHero(nameOrId: string, platform: 'xbox' | 'pc' | 'ps' = 'pc') {
+  public getLeaderboardHero(
+    nameOrId: string,
+    platform: 'xbox' | 'pc' | 'ps' = 'pc'
+  ) {
     return this.fetchWithRetry({
       domain: this.marvelRivalsApiUrlV1,
       endpoint: `heroes/leaderboard/${nameOrId}`,
@@ -312,7 +364,10 @@ export class Api {
     tries = 0
   }: {
     endpoint: string;
-    domain: Api['marvelRivalsApiUrlV1' | 'marvelRivalsApiUrlV2' | 'trackerApiUrlV2'];
+    domain: Api[
+    | 'marvelRivalsApiUrlV1'
+    | 'marvelRivalsApiUrlV2'
+    | 'trackerApiUrlV2'];
     route: string;
     validator: (data: unknown) => IValidation<T>;
     cacheKey?: string;
@@ -323,8 +378,14 @@ export class Api {
   }): Promise<null | T> {
     if (cacheKey) {
       cacheKey = `${cacheKey}${query
-        ? Object.entries(query).filter((kv): kv is [string, string | number] => kv.at(1) !== undefined).map((kv) => `${kv[0]}${kv[1]}`).join('_')
-        : ''}`;
+        ? Object.entries(query)
+          .filter(
+            (kv): kv is [string, string | number] => kv.at(1) !== undefined
+          )
+          .map((kv) => `${kv[0]}${kv[1]}`)
+          .join('_')
+        : ''
+        }`;
       const cachedData = await this.redisClient.GET(cacheKey);
       if (cachedData) {
         if (cachedData === 'null') {
@@ -342,7 +403,11 @@ export class Api {
       query: query
         ? new URLSearchParams(
           Object.fromEntries(
-            Object.entries(query).filter((kv): kv is [string, string | number] => kv.at(1) !== undefined).map(([key, value]) => [key, value.toString()] as const)
+            Object.entries(query)
+              .filter(
+                (kv): kv is [string, string | number] => kv.at(1) !== undefined
+              )
+              .map(([key, value]) => [key, value.toString()] as const)
           )
         )
         : undefined,
@@ -394,7 +459,11 @@ export class Api {
 
     if (!check.success) {
       this.logger.fatal(check.errors, `${domain}/${endpoint}`);
-      throw new Error(check.errors.map((err) => `Expected: ${err.expected} on ${err.path}`).join('\n'));
+      throw new Error(
+        check.errors
+          .map((err) => `Expected: ${err.expected} on ${err.path}`)
+          .join('\n')
+      );
     }
     if (cacheKey) {
       await this.redisClient.SET(cacheKey, JSON.stringify(check.data), {
@@ -404,13 +473,22 @@ export class Api {
     return check.data;
   }
 
-  private async fetchApi({ domain, endpoint, query, route }: {
+  private async fetchApi({
+    domain,
+    endpoint,
+    query,
+    route
+  }: {
     domain: Api['marvelRivalsApiUrlV1' | 'marvelRivalsApiUrlV2'];
     endpoint: string;
     query?: URLSearchParams;
     route: string;
   }) {
-    const callback = async (next: () => void, resolve: (data: Response) => void, reject: (err: unknown) => void) => {
+    const callback = async (
+      next: () => void,
+      resolve: (data: Response) => void,
+      reject: (err: unknown) => void
+    ) => {
       const url = `${domain}/${endpoint}?${query ?? ''}`;
       const bucket = this.ratelimits.get(route)!;
       const headers = {
@@ -438,15 +516,22 @@ export class Api {
       const xRatelimitRemaining = response.headers.get('x-ratelimit-remaining');
       const xRatelimitReset = response.headers.get('x-ratelimit-reset');
 
-      if (xRatelimitLimit !== null && xRatelimitRemaining !== null && xRatelimitReset !== null) {
+      if (
+        xRatelimitLimit !== null &&
+        xRatelimitRemaining !== null &&
+        xRatelimitReset !== null
+      ) {
         if (
-          xRatelimitLimit === 'cache' || xRatelimitRemaining === 'cache' || xRatelimitReset === 'cache'
+          xRatelimitLimit === 'cache' ||
+          xRatelimitRemaining === 'cache' ||
+          xRatelimitReset === 'cache'
         ) {
           //
         } else {
           bucket.remaining = Number(xRatelimitRemaining) - 1;
           bucket.limit = Number(xRatelimitLimit) - 1;
-          bucket.resetAfter = Number(xRatelimitReset) * 1e3 - new Date().getTime();
+          bucket.resetAfter =
+            Number(xRatelimitReset) * 1e3 - new Date().getTime();
         }
       }
 
@@ -456,19 +541,27 @@ export class Api {
         let errorMessage: string;
         try {
           const json = JSON.parse(text);
-          errorMessage = (json as {
-            message?: string;
-          }).message ?? (json as {
-            errors?: {
-              code: string;
-              message: string;
-            }[];
-          }).errors?.[0].message ?? 'Unknown error';
+          errorMessage =
+            (
+              json as {
+                message?: string;
+              }
+            ).message ??
+            (
+              json as {
+                errors?: {
+                  code: string;
+                  message: string;
+                }[];
+              }
+            ).errors?.[0].message ??
+            'Unknown error';
         } catch {
           errorMessage = `API request failed with status ${response.status}: ${response.statusText}`;
         }
         next();
-        reject(errorMessage); return;
+        reject(errorMessage);
+        return;
       }
 
       next();
@@ -504,5 +597,79 @@ export class Api {
       cacheKey: `autocomplete/${query}`,
       expireTime: 12 * 60 * 60
     });
+  }
+
+  // Tracker.gg
+  async getTrackerProfile(nameOrId: string) {
+    const data = await this.fetchWithRetry({
+      domain: this.trackerApiUrlV2,
+      endpoint: `marvel-rivals/standard/profile/ign/${encodeURIComponent(nameOrId)}`,
+      validator: validateProfile,
+      route: 'marvel-rivals/standard/profile/ign/:id',
+      cacheKey: `trackergg/profile/ign/${nameOrId}`,
+      expireTime: 5 * 60
+    });
+
+    if (!data) {
+      return null;
+    }
+
+    return data;
+  }
+
+  async getTrackerHeroesMetadata() {
+    const data = await this.fetchWithRetry({
+      domain: `${this.baseTrackerApiUrl}/api/v1`,
+      endpoint: 'marvel-rivals/metadata/type/hero',
+      validator: validateTrackerHeroesMetadata,
+      route: 'marvel-rivals/metadata/type/hero',
+      cacheKey: 'trackergg/heroes',
+      expireTime: 24 * 60 * 60
+    });
+
+    if (!data) {
+      return null;
+    }
+
+    return transformTrackerHeroesToHeroesDTO(data);
+  }
+
+  async getPlayerCareerData(
+    nameOrId: string,
+    mode: TrackerGameModes = 'all',
+    season: number | 'all' = 13
+  ) {
+    const [data, profile] = await Promise.all([
+      this.fetchWithRetry({
+        domain: this.trackerApiUrlV2,
+        endpoint: `marvel-rivals/standard/profile/ign/${encodeURIComponent(
+          nameOrId
+        )}/segments/career`,
+        validator: validatePlayerCareerData,
+        route: 'marvel-rivals/standard/profile/:id/segments/career',
+        cacheKey: `trackergg/player/career/ign/${nameOrId}/${mode}${season
+          ? `/${season}`
+          : ''
+          }`,
+        expireTime: 5 * 60,
+        query: {
+          mode,
+          ...season && { season }
+        }
+      }),
+      this.getTrackerProfile(nameOrId)
+    ]);
+
+    if (!data || !profile) {
+      return null;
+    }
+
+    return transformCareerToPlayerDTO(
+      data,
+      profile,
+      typeof nameOrId === 'number'
+        ? nameOrId
+        : 67
+    );
   }
 }

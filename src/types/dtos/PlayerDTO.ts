@@ -116,7 +116,7 @@ export interface Ranked {
   readonly total_assists: number;
   readonly total_deaths: number;
   readonly total_kills: number;
-  readonly total_time_played: string;
+  readonly total_time_played?: string;
   readonly total_time_played_raw: number;
   readonly total_mvp: number;
   readonly total_svp: number;
