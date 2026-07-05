@@ -1,10 +1,10 @@
 import type { ComponentInteractionMessageUpdate, PickPartial, Awaitable } from 'seyfert/lib/common';
-import type { APIButtonComponentWithCustomId } from 'seyfert/lib/types';
+import type { APIButtonComponentWithCustomId } from 'seyfert';
 import type { ButtonInteraction } from 'seyfert';
 
 import { type ListenerOptions, type CommandContext, ActionRow } from 'seyfert';
 import { DynamicBucket } from 'seyfert/lib/websocket/structures';
-import { ComponentType, ButtonStyle } from 'seyfert/lib/types';
+import { ComponentType, ButtonStyle } from 'seyfert';
 
 export async function callbackPaginator<T>(ctx: CommandContext, data: T[], options: {
     callback: (data: T[], pageIndex: number) => Awaitable<ComponentInteractionMessageUpdate>;
@@ -16,8 +16,13 @@ export async function callbackPaginator<T>(ctx: CommandContext, data: T[], optio
         pageSize: 10
     }) {
     const chunks = DynamicBucket.chunk(data, options.pageSize);
+    const firstChunk = chunks.at(0);
+    if (!firstChunk) {
+        throw new Error('No data to paginate');
+    }
+
     await ctx.editOrReply({
-        ...await options.callback(chunks[0], 0),
+        ...await options.callback(firstChunk, 0),
         components: [createButtonRow(chunks, 0)]
     }, true);
 

@@ -34,11 +34,12 @@ export const Seasons = [{
 } as const, {
     name: 'S6: Night at the Museum',
     value: 6
-} as const,
-{
+} as const, {
     name: 'S6.5: Night at the Museum',
     value: 6.5
 } as const, {
     name: 'S7: The Hunt is On',
     value: 7
-} as const];
+} as const] as const;
+
+export const SeasonsNotConst = [...Seasons];

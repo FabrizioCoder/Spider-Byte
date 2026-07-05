@@ -72,10 +72,10 @@ const options = {
 @LocalesT('commands.game.map.name', 'commands.game.map.description')
 @Options(options)
 export default class MapCommand extends SubCommand {
-    async run(ctx: CommandContext<typeof options>) {
+    override async run(ctx: CommandContext<typeof options>) {
         await ctx.deferReply();
 
-        const mapId = parseInt(ctx.options.name);
+        const mapId = parseInt(ctx.options.name, 10);
 
         const map = mapsJson.maps.find((m) => m.id === mapId) ?? null;
 
@@ -85,11 +85,16 @@ export default class MapCommand extends SubCommand {
             });
         }
 
+        const pathImage = map.images.at(2)?.replace('/rivals', '');
+        if (!pathImage) {
+            throw new Error(`Map image not found for map ID: ${mapId}`);
+        }
+
         const mapEmbed = new Embed()
             .setTitle(map.full_name)
             .setDescription(map.description)
             .setColor('Blurple')
-            .setImage(ctx.client.api.buildImage(map.images[2].replace('/rivals', '')))
+            .setImage(ctx.client.api.buildImage(pathImage))
             .addFields([
                 {
                     name: Formatter.underline('Game Mode'),

@@ -1,6 +1,7 @@
 import type { CommandContext, CommandOption, SubCommand } from 'seyfert';
 
 import { createStringOption, Formatter, LocalesT, Command, Declare, Options, Embed } from 'seyfert';
+import { ApplicationCommandOptionType } from 'seyfert';
 
 const options = {
     command: createStringOption({
@@ -47,17 +48,7 @@ const options = {
 @LocalesT('commands.help.name', 'commands.help.description')
 @Options(options)
 export default class HelpCommand extends Command {
-    async run(ctx: CommandContext<typeof options>) {
-        const commandName = ctx.options.command;
-
-        if (commandName) {
-            return this.showCommandDetails(ctx, commandName);
-        }
-
-        return this.showCommandList(ctx);
-    }
-
-    private async showCommandList(ctx: CommandContext) {
+    static async showCommandList(ctx: CommandContext) {
         const commands = ctx.client.commands.values;
 
         const embed = new Embed(ctx.t.commands.help.embed.get());
@@ -74,7 +65,7 @@ export default class HelpCommand extends Command {
         return ctx.editOrReply({ embeds: [embed] });
     }
 
-    private async showCommandDetails(ctx: CommandContext, commandName: string) {
+    static async showCommandDetails(ctx: CommandContext, commandName: string) {
         const command = ctx.client.commands.values.find(
             (cmd) => cmd.name.toLowerCase() === commandName.toLowerCase()
         ) as undefined | Command;
@@ -88,7 +79,7 @@ export default class HelpCommand extends Command {
         const commandDetailsEmbed = new Embed(ctx.t.commands.help.commandDetailsEmbed(commandName).get());
 
 
-        const subcommands = command.options?.filter((opt) => opt.type === 1 || opt.type === 2) as SubCommand[] | undefined;
+        const subcommands = command.options?.filter((opt) => opt.type === ApplicationCommandOptionType.Subcommand || opt.type === ApplicationCommandOptionType.SubcommandGroup) as SubCommand[] | undefined;
         if (subcommands?.length) {
             const subcommandsField = subcommands
                 .map((sub) => `**${sub.name}**: ${sub.description_localizations?.[
@@ -101,7 +92,7 @@ export default class HelpCommand extends Command {
                 value: subcommandsField
             });
         }
-        const opts = command.options?.filter((opt) => opt.type !== 1 && opt.type !== 2) as CommandOption[] | undefined;
+        const opts = command.options?.filter((opt) => opt.type !== ApplicationCommandOptionType.Subcommand && opt.type !== ApplicationCommandOptionType.SubcommandGroup) as CommandOption[] | undefined;
         if (opts?.length) {
             const optionsField = opts
                 .map((opt) => `**${opt.name}${opt.required
@@ -123,6 +114,16 @@ export default class HelpCommand extends Command {
         }
 
         return ctx.editOrReply({ embeds: [commandDetailsEmbed] });
+    }
+
+    override async run(ctx: CommandContext<typeof options>) {
+        const commandName = ctx.options.command;
+
+        if (commandName) {
+            return HelpCommand.showCommandDetails(ctx, commandName);
+        }
+
+        return HelpCommand.showCommandList(ctx);
     }
 
 }

@@ -130,7 +130,7 @@ export function getLevelFromRank(rankString: string): undefined | number {
     // Caso 1: Rangos de un solo tier sin número (ej: "Eternity")
     const matchedRank = RANKS.find((rt) => rt.name.toLowerCase() === trimmed.toLowerCase() && rt.tiers === 1);
     if (matchedRank) {
-        return matchedRank.levels[0];
+        return matchedRank.levels.at(0);
     }
 
     // Caso 2: Rangos con tier explícito (arábigo o romano)
@@ -141,7 +141,7 @@ export function getLevelFromRank(rankString: string): undefined | number {
     const tierPart = parts.pop()!;
     const tier = Number.isNaN(Number(tierPart))
         ? romanToInt(tierPart.toUpperCase())
-        : parseInt(tierPart);
+        : parseInt(tierPart, 10);
 
     if (Number.isNaN(tier)) {
         return undefined;
@@ -182,7 +182,7 @@ export function getRankDetails(level: number): RankDetails {
 
 export function getCurrentAndPeakRank(rankGameSeason: Record<string, RankGameSeason>) {
     const sortedSeasons = Object.entries(rankGameSeason)
-        .sort(([keyA], [keyB]) => parseInt(keyA) - parseInt(keyB));
+        .sort(([keyA], [keyB]) => parseInt(keyA, 10) - parseInt(keyB, 10));
 
     let currentLevel = 0;
     let peakLevel = 0;
@@ -199,8 +199,7 @@ export function getCurrentAndPeakRank(rankGameSeason: Record<string, RankGameSea
 }
 
 export function processRankHistory(history: RankHistory[]): RankHistoryDataPoint[] {
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     return history
         .sort((a, b) => a.match_time_stamp - b.match_time_stamp)

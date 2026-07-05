@@ -2,10 +2,10 @@ import type { CommandContext, OKFunction } from 'seyfert';
 
 import { createIntegerOption, createStringOption, createNumberOption, SubCommand, LocalesT, Declare, Options } from 'seyfert';
 
-import { createMatchHistoryImage, GameModes } from '../../utils/images/match-history';
+import { createMatchHistoryImage, GameModesNotConst } from '../../utils/images/match-history';
 import { autocompleteUserCallback } from '../../utils/callbacks';
 import { callbackPaginator } from '../../utils/paginator';
-import { Seasons } from '../../utils/constants';
+import { SeasonsNotConst } from '../../utils/constants';
 
 const options = {
     'name-or-id': createStringOption({
@@ -25,7 +25,7 @@ const options = {
     }),
     season: createNumberOption({
         description: 'Season',
-        choices: Seasons,
+        choices: SeasonsNotConst,
         locales: {
             name: 'commands.commonOptions.season.name',
             description: 'commands.commonOptions.season.description'
@@ -47,7 +47,7 @@ const options = {
     }),
     game_mode: createIntegerOption({
         description: 'Game mode',
-        choices: GameModes,
+        choices: GameModesNotConst,
         locales: {
             name: 'commands.commonOptions.gameMode.name',
             description: 'commands.commonOptions.gameMode.description'
@@ -62,7 +62,7 @@ const options = {
 @LocalesT('commands.match.history.name', 'commands.match.history.description')
 @Options(options)
 export default class History extends SubCommand {
-    async run(ctx: CommandContext<typeof options>) {
+    override async run(ctx: CommandContext<typeof options>) {
         const nameOrId = ctx.options['name-or-id'] || (await ctx.client.prisma.user.findFirst({
             where: {
                 userID: ctx.author.id
@@ -107,7 +107,7 @@ export default class History extends SubCommand {
         });
     }
 
-    onBeforeOptions(ctx: CommandContext) {
+    override onBeforeOptions(ctx: CommandContext) {
         return ctx.deferReply();
     }
 }

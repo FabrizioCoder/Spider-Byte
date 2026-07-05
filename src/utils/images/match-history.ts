@@ -38,7 +38,9 @@ export const GameModes = [{
 } as const, {
     name: 'Unknown',
     value: -1
-} as const];
+} as const] as const;
+
+export const GameModesNotConst = [...GameModes];
 
 function getSeasonName(season?: number): typeof Seasons[number]['name'] {
     if (season === undefined) {
@@ -65,19 +67,25 @@ export async function createMatchHistoryImage(t: CommandContext['t'], user: Play
     const canvas = new Canvas(WIDTH, HEIGHT);
     const ctx = canvas.getContext('2d');
 
-    background ??= await loadImage(await Bun.file(join(process.cwd(), 'assets', 'match-history', 'background.png')).bytes());
+    if (!background) {
+        const image = await loadImage(await Bun.file(join(process.cwd(), 'assets', 'match-history', 'background.png')).bytes());
+        background ??= image;
+    }
     ctx.drawImage(background, 0, 0, WIDTH, HEIGHT);
 
     const playerIcon = await loadUserIcon(user.player.icon.player_icon_id);
     drawCircularImage(ctx, playerIcon, 60, 60, 150, 150);
-    levelBackground ??= await loadImage(join(process.cwd(), 'assets', 'profile', 'level_bg.png'));
+    if (!levelBackground) {
+        const image = await loadImage(join(process.cwd(), 'assets', 'profile', 'level_bg.png'));
+        levelBackground ??= image;
+    }
     ctx.drawImage(levelBackground, 95, 180, 80, 30);
 
     ctx.font = '22px InterBlack';
     ctx.fillStyle = 'black';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    const playerLevel = user.player.level.toString();
+    const playerLevel = user.player.level;
     ctx.fillText(playerLevel, 95 + 80 / 2, 180 + 30 / 2);
 
     ctx.font = '40px InterBlack';
@@ -105,7 +113,10 @@ export async function createMatchHistoryImage(t: CommandContext['t'], user: Play
 
     if (user.player.rank.rank !== 'Invalid level' && matchHistory.filter((m) => m.game_mode_id === 2).length > 0) {
         const rankedGames = matchHistory.filter((m) => m.game_mode_id === 2);
-        const lastRankedGame = rankedGames[0];
+        const lastRankedGame = rankedGames.at(0);
+        if (!lastRankedGame) {
+            throw new Error('No ranked games found in match history.');
+        }
         const RANK_ICON_SIZE = 150;
         const RIGHT_MARGIN = 60;
 
@@ -254,7 +265,10 @@ export async function createMatchHistoryImage(t: CommandContext['t'], user: Play
             ctx.drawImage(mapImage, xPos, rectY, width, height);
 
             const imageGradient = ctx.createLinearGradient(
-                MARGIN.left + MATCH_RECT_WIDTH - GRADIENT_WIDTH, 0, MARGIN.left + MATCH_RECT_WIDTH - GRADIENT_WIDTH / 4, 0
+                MARGIN.left + MATCH_RECT_WIDTH - GRADIENT_WIDTH,
+                0,
+                MARGIN.left + MATCH_RECT_WIDTH - GRADIENT_WIDTH / 4,
+                0
             );
 
             imageGradient.addColorStop(0, 'rgba(27, 29, 35, 1)');
@@ -311,19 +325,35 @@ export async function createMatchHistoryImage(t: CommandContext['t'], user: Play
             ctx.moveTo(MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_BORDER_RADIUS, centerY - HERO_ICON_SIZE / 2);
             ctx.lineTo(MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_ICON_SIZE - HERO_BORDER_RADIUS, centerY - HERO_ICON_SIZE / 2);
             ctx.arcTo(
-                MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_ICON_SIZE, centerY - HERO_ICON_SIZE / 2, MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_ICON_SIZE, centerY - HERO_ICON_SIZE / 2 + HERO_BORDER_RADIUS, HERO_BORDER_RADIUS
+                MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_ICON_SIZE,
+                centerY - HERO_ICON_SIZE / 2,
+                MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_ICON_SIZE,
+                centerY - HERO_ICON_SIZE / 2 + HERO_BORDER_RADIUS,
+                HERO_BORDER_RADIUS
             );
             ctx.lineTo(MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_ICON_SIZE, centerY + HERO_ICON_SIZE / 2 - HERO_BORDER_RADIUS);
             ctx.arcTo(
-                MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_ICON_SIZE, centerY + HERO_ICON_SIZE / 2, MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_ICON_SIZE - HERO_BORDER_RADIUS, centerY + HERO_ICON_SIZE / 2, HERO_BORDER_RADIUS
+                MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_ICON_SIZE,
+                centerY + HERO_ICON_SIZE / 2,
+                MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_ICON_SIZE - HERO_BORDER_RADIUS,
+                centerY + HERO_ICON_SIZE / 2,
+                HERO_BORDER_RADIUS
             );
             ctx.lineTo(MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_BORDER_RADIUS, centerY + HERO_ICON_SIZE / 2);
             ctx.arcTo(
-                MARGIN.left + HERO_ICON_MARGIN_LEFT, centerY + HERO_ICON_SIZE / 2, MARGIN.left + HERO_ICON_MARGIN_LEFT, centerY + HERO_ICON_SIZE / 2 - HERO_BORDER_RADIUS, HERO_BORDER_RADIUS
+                MARGIN.left + HERO_ICON_MARGIN_LEFT,
+                centerY + HERO_ICON_SIZE / 2,
+                MARGIN.left + HERO_ICON_MARGIN_LEFT,
+                centerY + HERO_ICON_SIZE / 2 - HERO_BORDER_RADIUS,
+                HERO_BORDER_RADIUS
             );
             ctx.lineTo(MARGIN.left + HERO_ICON_MARGIN_LEFT, centerY - HERO_ICON_SIZE / 2 + HERO_BORDER_RADIUS);
             ctx.arcTo(
-                MARGIN.left + HERO_ICON_MARGIN_LEFT, centerY - HERO_ICON_SIZE / 2, MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_BORDER_RADIUS, centerY - HERO_ICON_SIZE / 2, HERO_BORDER_RADIUS
+                MARGIN.left + HERO_ICON_MARGIN_LEFT,
+                centerY - HERO_ICON_SIZE / 2,
+                MARGIN.left + HERO_ICON_MARGIN_LEFT + HERO_BORDER_RADIUS,
+                centerY - HERO_ICON_SIZE / 2,
+                HERO_BORDER_RADIUS
             );
             ctx.closePath();
             ctx.clip();

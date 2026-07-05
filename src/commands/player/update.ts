@@ -28,7 +28,7 @@ const options = {
 @LocalesT('commands.player.update.name', 'commands.player.update.description')
 @Options(options)
 export default class UpdateCommand extends SubCommand {
-    async run(ctx: CommandContext<typeof options>) {
+    override async run(ctx: CommandContext<typeof options>) {
         await ctx.deferReply(true);
 
         const nameOrId = ctx.options.name || (await ctx.client.prisma.user.findFirst({

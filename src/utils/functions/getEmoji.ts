@@ -25,8 +25,9 @@ export async function getEmoji(
     if (!result.length) {
         return null;
     }
+    const firstResult = result[0];
 
-    const matchedEmoji = emojis.find((emoji) => emoji.name === result[0]);
+    const matchedEmoji = emojis.find((emoji) => emoji.name === firstResult);
 
     return matchedEmoji ?? null;
 }

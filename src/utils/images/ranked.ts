@@ -40,7 +40,10 @@ export async function generateRankChart(user: PlayerDTO, scoreInfo: ExpectedScor
     };
     const chartWidth = 1_400;
     const chartHeight = 360;
-    const lastPoint = scoreInfo[scoreInfo.length - 1];
+    const lastPoint = scoreInfo.at(-1);
+    if (!lastPoint) {
+        throw new Error('No score information available to generate the chart.');
+    }
 
     // Process data
     const dates = scoreInfo.map((d) => new Date(d.match_time_stamp));
@@ -79,7 +82,11 @@ export async function generateRankChart(user: PlayerDTO, scoreInfo: ExpectedScor
     ctx.fillText(seasonTitle, 60, 230 + seasonMetrics.emHeightAscent);
 
     // Add trend statistics
-    const initialScore = scoreInfo[0].new_score;
+    const firstScoreInfo = scoreInfo.at(0);
+    if (!firstScoreInfo) {
+        throw new Error('No score information available to generate the chart.');
+    }
+    const initialScore = firstScoreInfo.new_score;
     const finalScore = lastPoint.new_score;
     const scoreDiff = finalScore - initialScore;
     const scoreDiffText = scoreDiff >= 0
@@ -154,7 +161,7 @@ export async function generateRankChart(user: PlayerDTO, scoreInfo: ExpectedScor
 
     // Player level
     ctx.font = '900 22px InterBold';
-    const playerLevel = user.player.level.toString();
+    const playerLevel = user.player.level;
     const levelMetrics = ctx.measureText(playerLevel);
     ctx.fillStyle = 'black';
     ctx.fillText(playerLevel, 105 + levelMetrics.width / 2, 184 + levelMetrics.emHeightAscent);
@@ -313,8 +320,7 @@ export async function generateRankChart(user: PlayerDTO, scoreInfo: ExpectedScor
 
     const formatDate = (date: Date): string => {
         const day = date.getDate();
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const month = months[date.getMonth()];
         return `${month} ${day}`;
     };

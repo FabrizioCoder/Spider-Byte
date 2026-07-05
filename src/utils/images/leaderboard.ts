@@ -13,10 +13,22 @@ let third: Image | null = null;
 let background: Image | null = null;
 
 export async function generateLeaderboard(data: LeaderboardPlayerHeroDTO['players'], page: number) {
-    first ??= await loadImage(join(process.cwd(), 'assets', 'leaderboard', 'crowns', 'first.png'));
-    second ??= await loadImage(join(process.cwd(), 'assets', 'leaderboard', 'crowns', 'second.png'));
-    third ??= await loadImage(join(process.cwd(), 'assets', 'leaderboard', 'crowns', 'third.png'));
-    background ??= await loadImage(join(process.cwd(), 'assets', 'leaderboard', 'blur_background.png'));
+    if (!first) {
+        const image = await loadImage(join(process.cwd(), 'assets', 'leaderboard', 'crowns', 'first.png'));
+        first ??= image;
+    }
+    if (!second) {
+        const image = await loadImage(join(process.cwd(), 'assets', 'leaderboard', 'crowns', 'second.png'));
+        second ??= image;
+    }
+    if (!third) {
+        const image = await loadImage(join(process.cwd(), 'assets', 'leaderboard', 'crowns', 'third.png'));
+        third ??= image;
+    }
+    if (!background) {
+        const image = await loadImage(join(process.cwd(), 'assets', 'leaderboard', 'blur_background.png'));
+        background ??= image;
+    }
 
     const canvas = createCanvas(900, 600);
     const ctx = canvas.getContext('2d');

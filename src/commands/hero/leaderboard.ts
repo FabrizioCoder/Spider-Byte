@@ -29,12 +29,12 @@ const options = {
             })));
         },
         async value({ value, context: ctx }, ok: OKFunction<string>, fail) {
-            const hero = (await ctx.client.api.getHeroes()).find((h) => h.name === value || h.id.toString() === value);
+            const hero = (await ctx.client.api.getHeroes()).find((h) => h.name === value || h.id === value);
             if (!hero) {
                 fail(`Invalid hero ${value}`); return;
             }
 
-            ok(hero.id.toString());
+            ok(hero.id);
         },
         required: true,
         locales: {
@@ -72,7 +72,7 @@ const options = {
 @LocalesT('commands.hero.leaderboard.name', 'commands.hero.leaderboard.description')
 @Options(options)
 export default class Ping extends SubCommand {
-    async run(ctx: CommandContext<typeof options>) {
+    override async run(ctx: CommandContext<typeof options>) {
 
         const leaderboard = await ctx.client.api.getLeaderboardHero(ctx.options.hero, ctx.options.platform);
         if (!leaderboard) {
@@ -94,7 +94,7 @@ export default class Ping extends SubCommand {
         });
     }
 
-    onBeforeOptions(ctx: CommandContext) {
+    override onBeforeOptions(ctx: CommandContext) {
         return ctx.deferReply();
     }
 }

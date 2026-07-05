@@ -12,7 +12,10 @@ const Y_NAME = 221;
 let background: Image | null = null;
 
 export async function generateCompare(players: [PlayerDTO, PlayerDTO]) {
-    background ??= await loadImage(join(process.cwd(), 'assets', 'compare', 'background.png'));
+    if (!background) {
+        const image = await loadImage(join(process.cwd(), 'assets', 'compare', 'background.png'));
+        background ??= image;
+    }
 
     const canvas = createCanvas(background.width, background.height);
     const ctx = canvas.getContext('2d');

@@ -31,7 +31,7 @@ const options = {
 @LocalesT('commands.player.compare.name', 'commands.player.compare.description')
 @Options(options)
 export default class CompareCommand extends SubCommand {
-    async run(ctx: CommandContext<typeof options>) {
+    override async run(ctx: CommandContext<typeof options>) {
         await ctx.deferReply();
 
         const firstNameOrId = ctx.options['name-or-id'];

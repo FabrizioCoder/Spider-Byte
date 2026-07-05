@@ -5,7 +5,7 @@ import { createIs } from 'typia';
 
 import { type ExpectedScoreInfo, generateRankChart } from '../../utils/images/ranked';
 import { autocompleteUserCallback } from '../../utils/callbacks';
-import { Seasons } from '../../utils/constants';
+import { SeasonsNotConst } from '../../utils/constants';
 
 const options = {
     'name-or-id': createStringOption({
@@ -18,7 +18,7 @@ const options = {
     }),
     season: createNumberOption({
         description: 'Season',
-        choices: Seasons,
+        choices: SeasonsNotConst,
         locales: {
             name: 'commands.commonOptions.season.name',
             description: 'commands.commonOptions.season.description'
@@ -42,7 +42,7 @@ const isExpectedScoreInfo = createIs<ExpectedScoreInfo>();
 @LocalesT('commands.player.rank.name', 'commands.player.rank.description')
 @Options(options)
 export default class RankCommand extends SubCommand {
-    async run(ctx: CommandContext<typeof options>) {
+    override async run(ctx: CommandContext<typeof options>) {
         await ctx.deferReply();
 
         const nameOrId = ctx.options['name-or-id'] || (await ctx.client.prisma.user.findFirst({

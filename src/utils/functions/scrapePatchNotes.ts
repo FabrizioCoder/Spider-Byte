@@ -5,6 +5,8 @@ import { LimitedCollection } from 'seyfert';
 import { Formatter } from 'seyfert';
 import * as cheerio from 'cheerio';
 
+import { ElementType } from '../../../node_modules/cheerio/node_modules/domhandler/node_modules/domelementtype/lib/esm';
+
 interface PatchNotes {
     title: string;
     date: string;
@@ -28,22 +30,22 @@ const processContent = ($: CheerioAPI, $element: cheerio.Cheerio<Element>, isSoc
     $element.contents().each((_, el) => {
         const $el = $(el);
 
-        if (el.type === 'text') {
+        if (el.type === ElementType.Text) {
             const text = cleanText($el.text());
             if (text && text !== '|') {
                 content.push(text);
             }
-        } else if (el.type === 'tag' && el.name === 'strong') {
+        } else if (el.type === ElementType.Tag && el.name === 'strong') {
             const text = cleanText($el.text());
             if (text) {
                 content.push(`**${text}**`);
             }
-        } else if (el.type === 'tag' && (el.name === 'h2' || el.name === 'h3')) {
+        } else if (el.type === ElementType.Tag && (el.name === 'h2' || el.name === 'h3')) {
             const text = cleanText($el.text());
             if (text) {
                 content.push(`__**${text}**__`);
             }
-        } else if (el.type === 'tag' && el.name === 'a' && !isSocialBlock) {
+        } else if (el.type === ElementType.Tag && el.name === 'a' && !isSocialBlock) {
             const text = cleanText($el.text());
             if (text) {
                 content.push(`[${text}](${$el.attr('href') ?? '#'})`);

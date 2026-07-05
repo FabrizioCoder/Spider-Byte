@@ -6,7 +6,7 @@ import { type CommandContext, SubCommand, LocalesT, Declare } from 'seyfert';
 })
 @LocalesT('commands.account.unlink.name', 'commands.account.unlink.description')
 export default class UnlinkCommand extends SubCommand {
-    async run(ctx: CommandContext) {
+    override async run(ctx: CommandContext) {
         await ctx.deferReply();
 
         const linkedAccount = await ctx.client.prisma.user.findFirst({

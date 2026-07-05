@@ -14,8 +14,8 @@ import {
     Embed
 } from 'seyfert';
 import { type CommandContext, type OKFunction, Button } from 'seyfert';
-import { MessageFlags, ButtonStyle } from 'seyfert/lib/types';
 import didYouMean, { ReturnTypeEnums } from 'didyoumean2';
+import { MessageFlags, ButtonStyle } from 'seyfert';
 
 import type {
     HeroesDTO,
@@ -78,7 +78,7 @@ const options = {
         },
         async value({ value, context: ctx }, ok: OKFunction<HeroesDTO>, fail) {
             const hero = (await ctx.client.api.getHeroes()).find(
-                (h) => h.name === value || h.id.toString() === value
+                (h) => h.name === value || h.id === value
             );
             if (!hero) {
                 fail(ctx.t.commands.hero.about.notFound(Formatter.inlineCode(value)).get());
@@ -101,10 +101,80 @@ const options = {
 })
 @LocalesT('commands.hero.about.name', 'commands.hero.about.description')
 @Options(options)
-export default class About extends SubCommand {
-    async run(ctx: CommandContext<typeof options>) {
+export default class AboutCommand extends SubCommand {
+    static generateRows(clicked: 'hero' | 'lore') {
+        const row = new ActionRow<StringSelectMenu | Button>();
+
+        const heroButton = new Button()
+            .setLabel('Hero')
+            .setStyle(ButtonStyle.Primary)
+            .setCustomId('hero')
+            .setDisabled(clicked === 'hero');
+
+        const loreButton = new Button()
+            .setLabel('Lore')
+            .setStyle(ButtonStyle.Primary)
+            .setCustomId('lore')
+            .setDisabled(clicked === 'lore');
+
+        const abilitiesButton = new Button()
+            .setLabel('Abilities')
+            .setStyle(ButtonStyle.Primary)
+            .setCustomId('abilities');
+
+        return row.addComponents(heroButton, loreButton, abilitiesButton);
+    }
+
+    static generateActionRowSelectMenu(
+        abilities: Ability[],
+        selectedAbility?: Omit<Ability, 'name' | 'type'>
+    ): ActionRow<StringSelectMenu | Button>[] {
+        const selectMenuRow = new ActionRow<StringSelectMenu>();
+        const buttonRow = new ActionRow<Button>();
+
+        const selectMenu = new StringSelectMenu()
+            .setCustomId('abilitiesMenu')
+            .setPlaceholder('Select an ability')
+            .setOptions(
+                abilities.filter((
+                    ability
+                ): ability is MakeRequired<Ability, 'name'> => !ability.isCollab).map((ability) => {
+                    const option = new StringSelectOption()
+                        .setLabel(ability.name || 'Passive')
+                        .setValue(String(ability.id));
+                    return option;
+                })
+            );
+
+        const buttons = [
+            new Button()
+                .setLabel('Back')
+                .setStyle(ButtonStyle.Primary)
+                .setCustomId('back'),
+            new Button()
+                .setLabel('Show combo')
+                .setStyle(ButtonStyle.Primary)
+                .setCustomId('combo')
+        ];
+
+        if (selectedAbility && !selectedAbility.isCollab) {
+            buttons.push(
+                new Button()
+                    .setLabel('Show video')
+                    .setStyle(ButtonStyle.Primary)
+                    .setCustomId(`video_${selectedAbility.id}`)
+            );
+        }
+
+        return [
+            selectMenuRow.addComponents(selectMenu),
+            buttonRow.addComponents(buttons)
+        ];
+    }
+
+    override async run(ctx: CommandContext<typeof options>) {
         const hero = ctx.options.name;
-        const heroMoreInfo = await ctx.client.api.getHero(String(hero.id));
+        const heroMoreInfo = await ctx.client.api.getHero(hero.id);
 
         if (!heroMoreInfo) {
             return ctx.editOrReply({
@@ -138,7 +208,7 @@ export default class About extends SubCommand {
         const message = await ctx.editOrReply(
             {
                 embeds: [heroEmbed],
-                components: [this.generateRows('hero')]
+                components: [AboutCommand.generateRows('hero')]
             },
             true
         );
@@ -154,7 +224,7 @@ export default class About extends SubCommand {
             'hero',
             (interaction) => interaction.update({
                 embeds: [heroEmbed],
-                components: [this.generateRows('hero')]
+                components: [AboutCommand.generateRows('hero')]
             })
         );
 
@@ -162,7 +232,7 @@ export default class About extends SubCommand {
             'lore',
             (interaction) => interaction.update({
                 embeds: [loreEmbed],
-                components: [this.generateRows('lore')]
+                components: [AboutCommand.generateRows('lore')]
             })
         );
 
@@ -170,7 +240,7 @@ export default class About extends SubCommand {
             'back',
             (interaction) => interaction.update({
                 embeds: [heroEmbed],
-                components: [this.generateRows('hero')]
+                components: [AboutCommand.generateRows('hero')]
             })
         );
 
@@ -185,10 +255,16 @@ export default class About extends SubCommand {
             }
         );
 
-        collector.run<ButtonInteraction>('abilities', async (interaction) => interaction.update({
-            embeds: [interaction.message.embeds[0]],
-            components: this.generateActionRowSelectMenu(hero.abilities)
-        }));
+        collector.run<ButtonInteraction>('abilities', async (interaction) => {
+            const embed = interaction.message.embeds.at(0);
+            if (!embed) {
+                return;
+            }
+            await interaction.update({
+                embeds: [embed],
+                components: AboutCommand.generateActionRowSelectMenu(hero.abilities)
+            });
+        });
 
         collector.run<ButtonInteraction>(/video_[0-9]{1,}/, async (interaction) => {
             const abilityID = interaction.customId.slice(6);
@@ -239,85 +315,15 @@ export default class About extends SubCommand {
             abilityEmbed.setDescription(description.join('\n'));
             await interaction.update({
                 embeds: [abilityEmbed],
-                components: this.generateActionRowSelectMenu(
+                components: AboutCommand.generateActionRowSelectMenu(
                     hero.abilities,
-                    abilityData as unknown as Omit<Ability, 'name' | 'type'>
+                    abilityData
                 )
             });
         });
     }
 
-    onBeforeOptions(ctx: CommandContext) {
+    override onBeforeOptions(ctx: CommandContext) {
         return ctx.deferReply();
-    }
-
-    generateRows(clicked: 'hero' | 'lore') {
-        const row = new ActionRow<StringSelectMenu | Button>();
-
-        const heroButton = new Button()
-            .setLabel('Hero')
-            .setStyle(ButtonStyle.Primary)
-            .setCustomId('hero')
-            .setDisabled(clicked === 'hero');
-
-        const loreButton = new Button()
-            .setLabel('Lore')
-            .setStyle(ButtonStyle.Primary)
-            .setCustomId('lore')
-            .setDisabled(clicked === 'lore');
-
-        const abilitiesButton = new Button()
-            .setLabel('Abilities')
-            .setStyle(ButtonStyle.Primary)
-            .setCustomId('abilities');
-
-        return row.addComponents(heroButton, loreButton, abilitiesButton);
-    }
-
-    generateActionRowSelectMenu(
-        abilities: Ability[],
-        selectedAbility?: Omit<Ability, 'name' | 'type'>
-    ): ActionRow<StringSelectMenu | Button>[] {
-        const selectMenuRow = new ActionRow<StringSelectMenu>();
-        const buttonRow = new ActionRow<Button>();
-
-        const selectMenu = new StringSelectMenu()
-            .setCustomId('abilitiesMenu')
-            .setPlaceholder('Select an ability')
-            .setOptions(
-                abilities.filter((
-                    ability
-                ): ability is MakeRequired<Ability, 'name'> => !ability.isCollab).map((ability) => {
-                    const option = new StringSelectOption()
-                        .setLabel(ability.name || 'Passive')
-                        .setValue(String(ability.id));
-                    return option;
-                })
-            );
-
-        const buttons = [
-            new Button()
-                .setLabel('Back')
-                .setStyle(ButtonStyle.Primary)
-                .setCustomId('back'),
-            new Button()
-                .setLabel('Show combo')
-                .setStyle(ButtonStyle.Primary)
-                .setCustomId('combo')
-        ];
-
-        if (selectedAbility && !selectedAbility.isCollab) {
-            buttons.push(
-                new Button()
-                    .setLabel('Show video')
-                    .setStyle(ButtonStyle.Primary)
-                    .setCustomId(`video_${selectedAbility.id}`)
-            );
-        }
-
-        return [
-            selectMenuRow.addComponents(selectMenu),
-            buttonRow.addComponents(buttons)
-        ];
     }
 }

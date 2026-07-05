@@ -21,7 +21,7 @@ const options = {
 @LocalesT('commands.account.link.name', 'commands.account.link.description')
 @Options(options)
 export default class LinkCommand extends SubCommand {
-    async run(ctx: CommandContext<typeof options>) {
+    override async run(ctx: CommandContext<typeof options>) {
         await ctx.deferReply();
 
         const nameOrId = ctx.options['name-or-id'];

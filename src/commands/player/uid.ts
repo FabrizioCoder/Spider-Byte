@@ -23,7 +23,7 @@ const options = {
 @Options(options)
 @LocalesT('commands.player.uid.name', 'commands.player.uid.description')
 export default class RankCommand extends SubCommand {
-    async run(ctx: CommandContext<typeof options>) {
+    override async run(ctx: CommandContext<typeof options>) {
         await ctx.deferReply();
 
         const nameOrId = ctx.options.name;

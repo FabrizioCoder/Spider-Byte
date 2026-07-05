@@ -1,6 +1,9 @@
-import { MergeOptions, LogLevels, Logger } from 'seyfert/lib/common';
+import type { RedisClientType } from '@redis/client';
+
 import { type IValidation, createValidate } from 'typia';
+import { MergeOptions } from 'seyfert/lib/common';
 import { Bucket } from 'seyfert/lib/api/bucket';
+import { LogLevels, Logger } from 'seyfert';
 
 import type { LeaderboardPlayerHeroDTO } from '../../types/dtos/LeaderboardPlayerHeroDTO';
 import type { MatchHistoryDTO, MatchHistory } from '../../types/dtos/MatchHistoryDTO';
@@ -55,7 +58,7 @@ export class Api {
 
   private apiKeyIndex = 0;
 
-  constructor(private readonly apiKeys: string[], private readonly redisClient: ReturnType<typeof import('@redis/client')['createClient']>) { }
+  constructor(private readonly apiKeys: string[], private readonly redisClient: RedisClientType) { }
 
   public buildImage(path: string) {
     return `${this.cdnUrl}${path}`;
@@ -323,7 +326,7 @@ export class Api {
   }): Promise<null | T> {
     if (cacheKey) {
       cacheKey = `${cacheKey}${query
-        ? Object.entries(query).filter((kv): kv is [string, string | number] => kv.at(1) !== undefined).map((kv) => `${kv[0]}${kv[1]}`).join('_')
+        ? Object.entries(query).filter((kv): kv is [string, string | number] => kv[1] !== undefined).map((kv) => `${kv[0]}${kv[1]}`).join('_')
         : ''}`;
       const cachedData = await this.redisClient.GET(cacheKey);
       if (cachedData) {
@@ -342,7 +345,7 @@ export class Api {
       query: query
         ? new URLSearchParams(
           Object.fromEntries(
-            Object.entries(query).filter((kv): kv is [string, string | number] => kv.at(1) !== undefined).map(([key, value]) => [key, value.toString()] as const)
+            Object.entries(query).filter((kv): kv is [string, string | number] => kv[1] !== undefined).map(([key, value]) => [key, value.toString()] as const)
           )
         )
         : undefined,
@@ -389,7 +392,7 @@ export class Api {
       throw new Error(err);
     }
 
-    const data = await response.json();
+    const data: unknown = await response.json();
     const check = validator(data);
 
     if (!check.success) {
@@ -455,7 +458,7 @@ export class Api {
         this.logger.fatal(text, url);
         let errorMessage: string;
         try {
-          const json = JSON.parse(text);
+          const json: unknown = JSON.parse(text);
           errorMessage = (json as {
             message?: string;
           }).message ?? (json as {
@@ -463,7 +466,7 @@ export class Api {
               code: string;
               message: string;
             }[];
-          }).errors?.[0].message ?? 'Unknown error';
+          }).errors?.at(0)?.message ?? 'Unknown error';
         } catch {
           errorMessage = `API request failed with status ${response.status}: ${response.statusText}`;
         }

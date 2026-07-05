@@ -1,17 +1,17 @@
-import type { Snowflake } from 'seyfert/lib/types';
+import type { Snowflake } from 'seyfert';
 
-import { LimitedCollection } from 'seyfert/lib/collection';
 import { createMiddleware, Formatter } from 'seyfert';
+import { LimitedCollection } from 'seyfert';
 
 const cooldowns = new LimitedCollection<Snowflake, Ratelimit>({});
 const whitelist = new Set(['507367752391196682', '221399196480045056']);
 
-export default createMiddleware<undefined>(({ context, next, stop, pass }) => {
+export default createMiddleware<undefined>(({ context, next, stop }) => {
     if (whitelist.has(context.author.id)) {
         next(); return;
     }
     if (!context.isChat()) {
-        pass(); return;
+        stop('pass'); return;
     }
     const commandCooldown = context.resolver.parent?.props.ratelimit;
     if (!commandCooldown) {
@@ -34,13 +34,13 @@ export default createMiddleware<undefined>(({ context, next, stop, pass }) => {
 
     const timeLeft = (currentCooldown.expireOn - Date.now()) / 1_000;
     switch (commandCooldown.type) {
-        case 'user':
-            stop(context.t.commands.middlewares.cooldown.error.user(
+        case 'channel':
+            stop(context.t.commands.middlewares.cooldown.error.channel(
                 Formatter.bold(`${timeLeft.toFixed(1)}s`)
             ).get());
             break;
-        case 'channel':
-            stop(context.t.commands.middlewares.cooldown.error.channel(
+        case 'user':
+            stop(context.t.commands.middlewares.cooldown.error.user(
                 Formatter.bold(`${timeLeft.toFixed(1)}s`)
             ).get());
             break;

@@ -1,17 +1,14 @@
-import { type ParseMiddlewares, type ParseLocales, type ParseClient, type UsingClient, Formatter, Client } from 'seyfert';
-import { PresenceUpdateStatus, ActivityType, MessageFlags } from 'seyfert/lib/types';
+import { type ParseLocales, type ParseClient, definePlugins, Formatter, Client } from 'seyfert';
+import { PresenceUpdateStatus, ActivityType, MessageFlags } from 'seyfert';
 import { basename, join, sep } from 'node:path';
-import { Api as TopGGAPI } from '@top-gg/sdk';
 import { GlobalFonts } from '@napi-rs/canvas';
-import { createClient } from '@redis/client';
 import { AttachmentBuilder } from 'seyfert';
 
 import type { Ratelimit } from './middlewares/cooldown';
 
-import { WEBHOOK_TOKEN, TOPGG_TOKEN, WEBHOOK_ID, API_KEY } from './utils/env';
-import { PrismaClient } from '../prisma/client';
+import { WEBHOOK_TOKEN, WEBHOOK_ID } from './utils/env';
+import { servicesPlugin } from './plugins/services';
 import { middlewares } from './middlewares';
-import { Api } from './lib/managers/api';
 // Register fonts
 GlobalFonts.registerFromPath(join(process.cwd(), 'assets', 'fonts', 'Inter', 'Inter_28pt-Regular.ttf'), 'InterRegular');
 GlobalFonts.registerFromPath(join(process.cwd(), 'assets', 'fonts', 'Inter', 'Inter_28pt-Black.ttf'), 'InterBlack');
@@ -19,6 +16,8 @@ GlobalFonts.registerFromPath(join(process.cwd(), 'assets', 'fonts', 'Inter', 'In
 GlobalFonts.registerFromPath(join(process.cwd(), 'assets', 'fonts', 'Inter', 'Inter_28pt-Bold.ttf'), 'InterBold');
 GlobalFonts.registerFromPath(join(process.cwd(), 'assets', 'fonts', 'RefrigeratorDeluxeBold.otf'), 'RefrigeratorDeluxeBold');
 GlobalFonts.registerFromPath(join(process.cwd(), 'assets', 'fonts', 'leaderboard.ttf'), 'leaderboard');
+
+const plugins = definePlugins(servicesPlugin());
 
 const client = new Client({
     commands: {
@@ -51,7 +50,7 @@ const client = new Client({
                                 : 'Unknown error').slice(0, 1_500), 'ts')
                 ];
 
-                if (content[1].includes('This player\'s profile is private.')) {
+                if (content.at(1)?.includes('This player\'s profile is private.')) {
                     return ctx.editOrReply({
                         content: ctx.t.commands.commonErrors.privateProfile.get(),
                         files: [
@@ -128,8 +127,9 @@ const client = new Client({
             status: PresenceUpdateStatus.Online
         };
     },
-    globalMiddlewares: ['cooldown']
-}) as UsingClient & Client;
+    globalMiddlewares: ['cooldown'],
+    plugins
+});
 
 client.setServices({
     langs: {
@@ -149,30 +149,13 @@ client.setServices({
 
 client.langs.filter = (path) => basename(path) === '_.ts';
 
-client.langs.onFile = (locale, { path, file }) => file.default
+client.langs.onFile = (locale, { path, file }) => file.default && path
     ? {
         file: file.default,
         locale: path.split(sep).at(-2) ?? locale
     }
     : false;
 
-
-client.redis = createClient();
-await client.redis.on('error', (err) => {
-    client.logger.error('Redis Client Error', err);
-}).connect();
-
-client.prisma = new PrismaClient();
-
-await client.prisma.$connect();
-
-client.api = new Api(API_KEY, client.redis);
-
-client.topgg = new TopGGAPI(TOPGG_TOKEN);
-
-await client.api.getHeroes();
-
-await client.api.getAllMaps();
 
 await client.start();
 
@@ -181,17 +164,12 @@ await client.uploadCommands({
 });
 
 declare module 'seyfert' {
-    interface RegisteredMiddlewares
-        extends ParseMiddlewares<typeof middlewares> { }
-
-    interface UsingClient extends ParseClient<Client<true>> {
-        api: Api;
-        redis: ReturnType<typeof createClient>;
-        topgg: TopGGAPI;
-        prisma: PrismaClient;
+    interface SeyfertRegistry {
+        client: ParseClient<Client<true>>;
+        langs: ParseLocales<typeof import('./locales/en-US/_')['default']>;
+        middlewares: typeof middlewares;
+        plugins: typeof plugins;
     }
-
-    interface DefaultLocale extends ParseLocales<typeof import('./locales/en-US/_')['default']> { }
 
     interface ExtraProps {
         ratelimit?: Ratelimit;

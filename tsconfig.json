@@ -25,6 +25,9 @@
       {
         "transform": "typia/lib/transform"
       }
+    ],
+    "types": [
+      "@types/bun"
     ]
   },
   "exclude": [

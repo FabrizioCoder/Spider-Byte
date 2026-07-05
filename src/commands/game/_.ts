@@ -1,4 +1,4 @@
-import { AutoLoad, LocalesT, Declare, Command } from 'seyfert';
+import { LocalesT, AutoLoad, Declare, Command } from 'seyfert';
 
 @Declare({
     name: 'game',
